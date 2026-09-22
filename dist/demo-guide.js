@@ -56,6 +56,7 @@ const guides={
    s('Open the prepared conversion case in the identity-agent application. Review the old and new identities, overlap, licenses, ownership and prerequisites. Stop at the proposal unless an execution demo has been prepared.','Jordan needs a coordinated handover; a generated proposal does not establish identity continuity.','Separate the proposed changes, the person authorized to approve them, and the execution/audit evidence required afterward.')
   ]],
   [[14,15,17,28],[
+   s('Open the Front Desk property-access preview beside Entra. Step Jordan from Bayside franchise to Harbor View managed, try the now-denied property, then step him back.','The room sees the transfer change a useful application outcome, not only a directory field.','The property decision in Front Desk is scripted. Compare it with actual assignments and a fresh protected application sign-in before claiming tenant enforcement.'),
    s('Open Entra ID → Enterprise applications → All applications. Find Harborline Opera PMS. Inspect Properties, Users and groups, and its configured single sign-on method.','Jordan works across two properties, so both app assignment and property context matter.','Confirm the target application and Jordan’s actual assignment. Inspect app-role definitions on the corresponding app registration if needed.'),
    s('In the application’s single sign-on configuration, inspect Attributes & Claims where available. Follow the configured claims mapping and custom claims provider to the source of property and role values.','The application should receive the correct business context without an unmanageable collection of groups.','Distinguish configured claims from an issued token. Inspect a token only in a prepared diagnostic app; do not paste live tokens into the workshop.'),
    s('Open ID Governance → Entitlement management → Access packages. Compare the Harbor View and Bayside Guest Services Lead packages: resource roles, request policies, approvers, expiry and assignments.','Property access and privileged Admin access require deliberate scope and approval.','Show the two actual packages and their policy differences. A package’s existence is separate from Jordan having an assignment.')
@@ -176,7 +177,7 @@ const highlights = {
  jordan: [
   ['Find Jordan’s identity records','Confirm the hire and contract dates','Compare the access he has today'],
   ['Check the pre-hire workflow','Verify Jordan’s execution history','Review the proposed identity handover'],
-  ['Inspect Opera PMS roles','Follow property and role claims','Compare approvals and access expiry'],
+  ['Show franchise access in Front Desk','Switch to managed and show franchise denied','Switch back and compare Entra assignments'],
   ['Confirm Jordan’s sign-in method','Show his requests and assignments','Launch an application as Jordan']
  ],
  sofia: [
@@ -196,7 +197,7 @@ const highlights = {
   ['Compare contract end and account state','Inspect access that remains','Observe Tom’s actual sign-in result'],
   ['Check the expiry workflow scope','Locate execution gaps or failures','Review decisions and applied results'],
   ['Read the review agent’s evidence','Explain the proposed cleanup decision','Verify outcomes after approved execution'],
-  ['Find Tom in the External ID tenant','Sign in to the Supplier Desk as Tom','Ask who owns the vendor lifecycle']
+  ['Find Tom in the External ID tenant','Try Supplier Desk in a fresh session','Separate its result from Workforce access']
  ],
  kwame: [
   ['Verify the departure and account state','Compare Kwame’s outcome with Tom’s','Test the fresh sign-in boundary'],
@@ -208,7 +209,7 @@ const highlights = {
 export function buildDemoGuide(p,index,isUser){
  const m=p.moments[index], [ids,admin]=guides[p.id][index], account=userAccount(p), u=userMoments[p.id][index];
  return {company:companyStories[p.id],personId:p.id,momentIndex:index,name:p.name,time:m.time,title:m.title,why:m.body,perspective:isUser?'User view':'Admin view',job:p.job,story:p.intro,
-  ...(p.id==='sam'?{liveUrl:new URL('./desk.html?stage=1',import.meta.url).href,authUrl:'https://kind-beach-0ba2dc30f.6.azurestaticapps.net/desk-auth.html',liveLabel:'Harborline Front Desk',liveKind:'front desk demo app',demoPreview:true}:{}),
+  ...(['sam','samfed','jordan'].includes(p.id)?{liveUrl:new URL(`./desk.html?stage=1${p.id==='jordan'?'&persona=jordan':p.id==='samfed'?'&persona=samfed':''}`,import.meta.url).href,authUrl:p.id==='sam'?'https://kind-beach-0ba2dc30f.6.azurestaticapps.net/desk-auth.html':undefined,liveLabel:p.id==='jordan'?'Front Desk · property transfer':p.id==='samfed'?'Front Desk · franchise context':'Harborline Front Desk',liveKind:'front desk demo app',demoPreview:true}:{}),
   account,domain:account.split('@')[1],cases:ids.map(id=>cases.find(c=>c.id===id)).filter(Boolean),caution:p.caution,question:p.question,evidence:m.evidence,
   highlights:highlights[p.id][index],admin, user:p.id==='sam'?[
    s('In top-level Chrome, open Harborline Front Desk and select Sign in with Microsoft Entra. On the Microsoft page choose Sign-in options → Face, fingerprint, PIN or security key. Use Sam’s registered passkey, then watch the browser return to Front Desk.','This shows the app-initiated sign-in and the handoff back to a named Front Desk session.','If Sam has no registered passkey or Entra does not offer it, stop and label the passkey proof unverified. Use the kiosk VM separately for device claims.'),

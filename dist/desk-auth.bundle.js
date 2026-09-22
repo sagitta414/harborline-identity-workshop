@@ -13,7 +13,7 @@ var __export = (target, all) => {
     __defProp(target, name3, { get: all[name3], enumerable: true });
 };
 
-// dist/desk.js
+// dist/desk.js?v=20260922-property1
 var desk_exports = {};
 function record(title, detail2) {
   data.activity.unshift({ title, detail: `${now()} \xB7 ${detail2}` });
@@ -30,7 +30,17 @@ function notify(message) {
   toastTimer = setTimeout(() => el.remove(), 3600);
 }
 function header() {
-  return `<aside class="rail"><div class="rail-brand"><img src="./assets/harborline-mark.svg" alt=""><div><strong>Harborline</strong><small>FRONT DESK</small></div></div><div><span class="rail-group-label">WORKSPACE</span><nav class="rail-nav" aria-label="Front desk navigation">${[["overview", "Overview"], ["arrivals", "Arrivals & guests"], ["rooms", "Room board"], ["service", "Guest service"]].map(([key, label]) => `<button type="button" data-view="${key}" aria-label="${label}" ${view === key ? 'aria-current="page"' : ""}>${ico(key)}<span>${label}</span></button>`).join("")}</nav></div><div class="rail-bottom"><strong>Ballard Locks House</strong>Seattle, Washington<br>Shared front desk \xB7 demo environment</div></aside><div class="desk-main"><header class="topline"><div class="property"><i class="property-mark" aria-hidden="true"></i><strong>Ballard Locks House</strong><span>\xB7 Seattle, WA</span></div><div class="top-actions"><span class="demo-pill">DEMO DATA \xB7 NOT CONNECTED TO PMS</span>${entraIdentity ? '<span class="identity-pill">ENTRA SESSION</span><button class="top-signout" type="button" data-action="sign-out">Sign out</button>' : '<a class="top-signin" href="https://kind-beach-0ba2dc30f.6.azurestaticapps.net/desk-auth.html" target="_blank" rel="noopener noreferrer">Sign in with Entra \u2197</a>'}<div class="operator">${operatorImage()}<span><strong>${esc(operator)}</strong><small>${entraIdentity ? esc(entraIdentity.username) : "Front desk shift"}</small></span></div></div></header><main class="main-inner" id="desk-main">`;
+  const property = currentProperty();
+  return `<aside class="rail"><div class="rail-brand"><img src="./assets/harborline-mark.svg" alt=""><div><strong>Harborline</strong><small>FRONT DESK</small></div></div><div><span class="rail-group-label">WORKSPACE</span><nav class="rail-nav" aria-label="Front desk navigation">${[["overview", "Overview"], ["arrivals", "Arrivals & guests"], ["rooms", "Room board"], ["service", "Guest service"]].map(([key, label]) => `<button type="button" data-view="${key}" aria-label="${label}" ${view === key ? 'aria-current="page"' : ""}>${ico(key)}<span>${label}</span></button>`).join("")}</nav></div><div class="rail-bottom"><strong>${esc(property.name)}</strong>${esc(property.place)}<br>Shared front desk \xB7 demo environment</div></aside><div class="desk-main"><header class="topline"><div class="property"><i class="property-mark" aria-hidden="true"></i><strong>${esc(property.name)}</strong><span>\xB7 ${esc(property.place)}</span></div><div class="top-actions"><span class="demo-pill">${propertyDemo ? "SCRIPTED ACCESS PREVIEW" : "DEMO DATA"} \xB7 NOT CONNECTED TO PMS</span>${entraIdentity ? '<span class="identity-pill">ENTRA SESSION</span><button class="top-signout" type="button" data-action="sign-out">Sign out</button>' : '<a class="top-signin" href="https://kind-beach-0ba2dc30f.6.azurestaticapps.net/desk-auth.html" target="_blank" rel="noopener noreferrer">Sign in with Entra \u2197</a>'}<div class="operator">${operatorImage()}<span><strong>${esc(operator)}</strong><small>${entraIdentity ? esc(entraIdentity.username) : "Front desk shift"}</small></span></div></div></header><main class="main-inner" id="desk-main">`;
+}
+function propertyJourney() {
+  if (!propertyDemo) return "";
+  const allowed = allowedProperty();
+  return `<section class="property-journey" aria-label="Property access demonstration"><div class="property-journey-copy"><span class="eyebrow">${persona === "jordan" ? "JORDAN \xB7 PROPERTY TRANSFER" : "SAM \xB7 FRANCHISE DESK"}</span><h2>${persona === "jordan" ? "One person. Different property access." : "Franchise context at the desk."}</h2><p>${persona === "jordan" ? "Choose a transfer stage, then open each property to see where Jordan can work." : "The franchise owns Sam\u2019s sign-in; this screen previews the property scope after it."}</p></div>${persona === "jordan" ? `<div class="phase-steps" role="group" aria-label="Transfer stage">${[["franchise", "1 \xB7 Franchise"], ["managed", "2 \xB7 Managed"], ["return", "3 \xB7 Return"]].map(([value, label]) => `<button type="button" data-phase="${value}" aria-pressed="${phase === value}">${label}</button>`).join("")}</div>` : ""}<div class="property-choices" role="group" aria-label="Choose property">${Object.entries(properties).map(([key, item]) => `<button type="button" data-property="${key}" aria-pressed="${selectedProperty === key}"><strong>${esc(item.name)}</strong><small>${key === allowed ? "Access available" : "Access denied"} \xB7 ${esc(item.place)}</small></button>`).join("")}</div><p class="property-proof">${persona === "jordan" ? "Scripted preview of app authorization. Compare it with actual Entra assignments and a fresh sign-in before calling a tenant change proven." : "Scripted franchise property scope. Prove federation and device policy in the protected kiosk session."}</p></section>`;
+}
+function denied() {
+  const property = currentProperty(), granted = properties[allowedProperty()];
+  return `<section class="access-denied" role="status"><span class="deny-symbol" aria-hidden="true">\xD7</span><div class="eyebrow">ACCESS DENIED \xB7 SCRIPTED PREVIEW</div><h1>${esc(operator)} cannot open ${esc(property.name)}.</h1><p>This transfer stage grants ${esc(granted.name)}. The other property's guest roster, rooms and service queue stay unavailable.</p><div class="denied-actions"><button class="btn primary" type="button" data-property="${allowedProperty()}">Open ${esc(granted.name)} \u2192</button><span>No tenant entitlement was changed by this preview.</span></div></section>`;
 }
 function lead(kicker, title, description, action = "") {
   return `<div class="page-lead"><div><div class="eyebrow">${esc(kicker)}</div><h1>${esc(title)}</h1><p>${esc(description)}</p></div><div class="lead-actions">${action}<button class="btn subtle" type="button" data-action="handover">End shift</button></div></div>`;
@@ -76,11 +86,11 @@ function lockScreen() {
   return `<div class="lock"><div class="lock-card"><img src="./assets/harborline-mark.svg" alt="Harborline"><div class="eyebrow">Shared front desk \xB7 demo</div><h1>Shift ended. Desk cleared.</h1><p>The previous demo operator\u2019s guest screen and work state have been removed.</p>${entraIdentity ? `<p>Signed in as <strong>${esc(operator)}</strong>. Sign out before the next person uses this browser.</p><button type="button" class="btn primary" data-action="sign-out">Sign out of Entra</button>` : `<label class="field" for="next-operator">Next operator<select id="next-operator"><option value="Avery Lee">Avery Lee \xB7 front desk</option><option value="Sam Okoro">Sam Okoro \xB7 night audit</option></select></label><button type="button" class="btn primary" data-action="new-shift">Start fresh demo shift</button>`}<div class="fineprint">Sample guest work is local to this page. End shift does not prove Windows kiosk cleanup or invalidate another application session.</div></div></div>`;
 }
 function render() {
-  app.innerHTML = locked ? lockScreen() : `<div class="desk-shell">${header()}${view === "overview" ? overview() : view === "arrivals" ? arrivals() : view === "rooms" ? rooms() : service()}</main></div></div>${detail()}`;
+  app.innerHTML = locked ? lockScreen() : `<div class="desk-shell">${header()}${propertyJourney()}${propertyAllowed() ? view === "overview" ? overview() : view === "arrivals" ? arrivals() : view === "rooms" ? rooms() : service() : denied()}</main></div></div>${propertyAllowed() ? detail() : ""}`;
 }
-var app, icons, ico, esc, seed, entraIdentity, data, view, drawer, search, operator, locked, toastTimer, mark, now, operatorImage, count, roomCount;
+var app, icons, ico, esc, seed, entraIdentity, persona, propertyDemo, properties, phase, selectedProperty, data, view, drawer, search, operator, locked, toastTimer, allowedProperty, propertyAllowed, currentProperty, mark, now, operatorImage, count, roomCount;
 var init_desk = __esm({
-  "dist/desk.js"() {
+  "dist/desk.js?v=20260922-property1"() {
     app = document.querySelector("#desk-app");
     if (new URLSearchParams(location.search).has("stage")) document.body.classList.add("stage-mode");
     icons = { overview: '<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>', arrivals: '<path d="M3 21h18M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16M9 7h.01M15 7h.01M9 11h.01M15 11h.01M10 21v-5h4v5"/>', rooms: '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 11h18M8 11v9M16 11v9"/>', service: '<path d="M5 8h14M5 12h14M5 16h9M3 4h18v16H3z"/>' };
@@ -106,20 +116,49 @@ var init_desk = __esm({
       activity: [{ title: "Night shift opened", detail: "Sample property state loaded \xB7 all data is local to this page" }]
     });
     entraIdentity = window.__deskIdentity || null;
+    persona = new URLSearchParams(location.search).get("persona");
+    propertyDemo = persona === "jordan" || persona === "samfed";
+    properties = { franchise: { name: "Bayside House", place: "Bayside \xB7 franchise" }, managed: { name: "Harbor View", place: "Seattle \xB7 managed hotel" } };
+    phase = "franchise";
+    selectedProperty = "franchise";
     data = seed();
     view = "overview";
     drawer = null;
     search = "";
-    operator = entraIdentity?.name || "Sam Okoro";
+    operator = entraIdentity?.name || (persona === "jordan" ? "Jordan Vale" : "Sam Okoro");
     locked = false;
+    allowedProperty = () => persona === "samfed" ? "franchise" : phase === "managed" ? "managed" : "franchise";
+    propertyAllowed = () => !propertyDemo || selectedProperty === allowedProperty();
+    currentProperty = () => propertyDemo ? properties[selectedProperty] : { name: "Ballard Locks House", place: "Seattle, WA" };
     mark = (status) => status.toLowerCase().replace(/\s+/g, "-");
     now = () => new Intl.DateTimeFormat("en-US", { hour: "numeric", minute: "2-digit" }).format(/* @__PURE__ */ new Date());
-    operatorImage = () => operator === "Sam Okoro" ? '<img src="./assets/personas/sam-okoro.webp" alt="">' : '<span class="operator-initials" aria-hidden="true">AL</span>';
+    operatorImage = () => operator === "Sam Okoro" ? '<img src="./assets/personas/sam-okoro.webp" alt="">' : operator === "Jordan Vale" ? '<img src="./assets/personas/jordan-vale.webp" alt="">' : '<span class="operator-initials" aria-hidden="true">AL</span>';
     count = (status) => data.guests.filter((x) => x.status === status).length;
     roomCount = (status) => data.rooms.filter((x) => x.status === status).length;
     app.addEventListener("click", (event) => {
       const button = event.target.closest("button");
       if (!button) return;
+      if (button.dataset.phase) {
+        phase = button.dataset.phase;
+        selectedProperty = allowedProperty();
+        drawer = null;
+        view = "overview";
+        data = seed();
+        record("Property context changed", `${operator} \xB7 ${currentProperty().name} \xB7 scripted preview`);
+        render();
+        return;
+      }
+      if (button.dataset.property) {
+        selectedProperty = button.dataset.property;
+        drawer = null;
+        view = "overview";
+        render();
+        return;
+      }
+      if (!propertyAllowed() && !["sign-out", "handover"].includes(button.dataset.action)) {
+        notify("Access denied for this property in the scripted preview");
+        return;
+      }
       if (button.dataset.view) {
         view = button.dataset.view;
         drawer = null;

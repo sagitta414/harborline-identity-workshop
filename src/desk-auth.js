@@ -39,7 +39,7 @@ async function start(){
     msal.setActiveAccount(account);
     window.__deskIdentity={name:account.name||account.username||'Front desk team member',username:account.username||'',tenantId:account.tenantId||''};
     window.addEventListener('desk-signout',()=>msal.logoutRedirect({account,postLogoutRedirectUri:new URL('./desk-auth.html',location.href).href}));
-    await import('../dist/desk.js');
+    await import('../dist/desk.js?v=20260922-property1');
   }catch(error){
     console.error('Front Desk authentication failed',error);
     gate('The application did not receive a usable Entra session.','Sign-in was not completed. Check that this account is assigned to Harborline Desk, then try again in a new browser tab.');
