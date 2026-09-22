@@ -95,7 +95,7 @@ export function installDualStage(root,config,validateGateway,onUserFocus,onAdmin
   userWelcome.querySelector('[data-dual="user-connect"]').textContent=g.liveUrl?`Open ${userSourceKind}`:'Open user session';
   userDisconnect.textContent=g.liveUrl?`Close ${userSourceKind}`:'Disconnect user';
   userStatus.textContent=g.liveUrl?'Portal link configured · sign-in unverified':'Not connected';
-  userPersonName=g.name;user.querySelector('#stage-user-name').textContent=g.name+' · '+(g.liveKind||'user experience');user.querySelector('#stage-user-purpose').textContent=g.liveUrl?`Live ${g.liveKind||'application'} · show the sign-in and enforced outcome`:'Separate protected desktop · show the person’s experience';ai.querySelector('#stage-ai-name').textContent=g.name+' · AI copilot';
+  userPersonName=g.name;user.querySelector('#stage-user-name').textContent=g.name;user.querySelector('#stage-user-purpose').textContent=g.liveUrl?`Live ${g.liveKind||'application'} · show the sign-in and enforced outcome`:'Separate protected desktop · show the person’s experience';ai.querySelector('#stage-ai-name').textContent=g.name+' · AI copilot';
   if(changedPersona)setLayout('both');else setActive(activeSide);
   steps.replaceChildren(...g.highlights.map((text,index)=>{const li=document.createElement('li'),n=document.createElement('span'),label=document.createElement('strong');n.textContent=String(index+1);label.textContent=text;li.append(n,label);return li;}));
   const prompt=`${g.name}: ${g.title}. ${g.why} Read the connected tenant, cite the evidence, preview one bounded action, identify the approval owner, and provide verification and undo steps. Do not claim execution unless audit evidence confirms it.`;
