@@ -125,7 +125,7 @@ const guides={
   [[5,6,27],[
    s('Open Entra ID → Users → All users → Tom Reilly. Confirm tom.reilly@arrow-creations.us and inspect account status and the prepared contract-end source.','Tom’s HVAC engagement has ended; the question is whether access ended with it.','Compare the reference 31 July date with current values. Show current enabled/disabled state without editing it.'),
    s('Open Groups and Applications. Inspect remaining memberships and assignments. Open Sign-in logs with a relevant date range and application filter.','An enabled flag, a remaining assignment and actual use are different kinds of evidence.','Record the precise event date and result. No event in the selected log window does not prove no historical activity.'),
-   s('If a prepared authorized persona test is available, attempt a fresh My Apps sign-in as Tom and show its real result. Compare that with the administrator findings.','The client sees the practical impact of the remaining access.','Do not assume every app is accessible just because the account is enabled; do not disable Tom while simply presenting this starting state.')
+   s('Choose an application actually assigned to Tom’s Workforce account. In a fresh persona browser session, attempt to open it and record the result. If an approved removal is run later, repeat the same request in a new session.','A before-and-after result on the same protected resource shows what Workforce cleanup changed.','Match the Workforce account, application, time and failure reason in its sign-in and audit records. Do not disable Tom merely to present the starting state.')
   ]],
   [[5,6,31],[
    s('Open Lifecycle workflows → HL Vendor contract expiry. Compare its scope and trigger attributes with Tom’s actual record.','A configured workflow can miss a person when scope or source data is wrong.','Show the exact match or mismatch; a past contract date does not itself execute a workflow.'),
@@ -139,7 +139,7 @@ const guides={
   ]],
   [[5],[
    s('Switch to the External ID tenant (harborlineext) and open Users → Tom Reilly. Show the ClimateWorks HVAC company attribute.','The same human holds a second identity in a second population.','This account is untouched by the workforce leaver process.'),
-   s('Sign in to the Supplier Desk as tom.reilly@climateworks.example and show his ClimateWorks records.','A vendor survives an offboarding through the door nobody tracked.','Use the External ID password from the run sheet, not the workforce demo password.'),
+   s('In a separate persona session, sign in to the real Supplier Desk as tom.reilly@climateworks.example and open a ClimateWorks resource. After a separately approved external removal, retry that same resource in a fresh session.','The External ID supplier relationship has a different lifecycle from Tom’s Workforce identity.','Use the private External ID credential. Match the External ID sign-in and API allow or deny response; a Workforce denial is not proof that Supplier Desk access ended.'),
    s('Ask who owns the external lifecycle for vendors in the client’s environment.','Two populations need two owners and two end dates.','Tie it back to use case 5, population placement.')
   ]]
  ],
@@ -147,7 +147,7 @@ const guides={
   [[27,33],[
    s('Open Kwame Mensah in All users and verify kwame.mensah@arrow-creations.us. Compare his departure source with the account status.','Kwame provides a second leaver case to contrast with Tom.','The reference departure is 10 September and the script describes a disabled account; verify current values.'),
    s('Open Tom’s record in another administrator tab. Compare both end dates and current enabled flags using the same fields.','The same business event can produce different outcomes when controls or scope differ.','Explain only the differences supported by the two records; do not treat either snapshot as a live fact.'),
-   s('In a prepared fresh user profile, attempt Kwame’s sign-in only with the privately held lab credential. Record the actual result and corresponding sign-in event.','A fresh sign-in tests the user-facing departure boundary.','A disabled user may be unable to sign in by design; do not re-enable the account to make the demonstration succeed.')
+   s('Identify an application Kwame had assigned before departure. In a prepared fresh user profile, try to open that protected app using the privately held lab credential. Record the actual result and corresponding sign-in event.','A fresh attempt against a named application tests the user-facing departure boundary.','Use the event’s actual reason to explain a denial. Do not re-enable Kwame to make the demonstration succeed; a missing assignment and a disabled account are different results.')
   ]],
   [[27,31,33],[
    s('Open the applicable leaver workflow → History. Find Kwame’s run and inspect each configured task’s result and time.','Disabling, revoking and removing access are separate outcomes.','Use actual task results; do not assume the workflow name implies all three actions occurred.'),
