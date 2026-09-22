@@ -273,3 +273,15 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--hl-sky-strong)!i
 
 /* Three partner journeys should fill one presentation row on a wide screen. */
 @media(min-width:1100px){.external-journey-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important}.external-journey-grid .vendor-feature{padding:24px}.external-journey-grid .vendor-feature h3{font-size:clamp(19px,1.7vw,24px)}.external-journey-grid .vendor-feature .eyebrow{font-size:9px;letter-spacing:.5px}}
+/* External ID section: the four stories on external and franchisee identities */
+.external-story-strip{margin-top:28px;padding-top:22px;border-top:1px solid var(--hl-line)}
+.external-story-head p{color:var(--hl-muted);font-size:15px;max-width:70ch;margin:8px 0 14px}
+.external-story-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.external-story{display:grid;gap:6px;align-content:start;background:#fff!important;border:1px solid var(--hl-line);border-radius:14px;padding:16px 18px;text-decoration:none!important;color:var(--hl-ink)!important;transition:border-color .15s,box-shadow .15s}
+.external-story:hover{border-color:var(--hl-sky-strong);box-shadow:0 8px 24px #12314d14}
+.external-story-top{display:flex;justify-content:space-between;gap:8px;font:700 11px/1.4 var(--display,sans-serif);letter-spacing:.08em;text-transform:uppercase;color:var(--hl-muted)}
+.external-story-top b{color:var(--hl-orange);white-space:nowrap}.external-story-top span{text-align:right}
+.external-story strong{font-size:16px;color:var(--hl-navy)!important}
+.external-story em{font-style:normal;font-size:13px;color:var(--hl-muted)}
+.external-story small{font-size:13px;line-height:1.5;color:var(--hl-ink)}
+.external-story-go{font-size:13px;font-weight:700;color:var(--hl-blue)!important;margin-top:4px}
