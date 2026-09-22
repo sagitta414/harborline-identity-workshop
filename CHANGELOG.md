@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.4.4 (2026-09-22)
+
+- The External ID section on the home page now lists the four day-in-the-life stories that run on external or franchisee identities (Elena, Jordan, Sam federated, Tom) with the deck's persona labels and "what it proves" lines, linking to each story.
+- Personas carry `proves` and `label` fields from slide 5 of the client deck.
+
 ## 1.4.3 (2026-09-21)
 
 Word-for-word alignment with the client deck (slides 5, 6, 8 to 15).
