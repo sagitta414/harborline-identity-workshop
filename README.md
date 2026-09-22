@@ -27,6 +27,14 @@ Run `npm run check` for JavaScript syntax. Serve the `dist` directory over HTTP.
 
 Deployment uses Sites. The workshop is public at the user's request; the gateway requires separate authentication.
 
+## Front Desk passkey-to-app rehearsal
+
+`dist/desk.html` is the public, synthetic Front Desk preview. `dist/desk-auth.html` is a separate, top-level Microsoft Entra sign-in entry point for the Workforce tenant's existing **Harborline Desk (OIDC)** application. It uses MSAL Browser's authorization-code flow with PKCE and a dedicated redirect bridge. Entra chooses whether to offer a passkey; the page cannot force or prove the authentication method. After a successful app-initiated sign-in, it displays the returned account in the Front Desk header. All guest and room data remains synthetic and client-side; this is not a protected PMS or server-side authorization demonstration.
+
+The application registration retains its existing `http://localhost:5173/auth/callback` and `https://desk.harborline.demo/auth/callback` web redirects and implicit-grant settings. The approved SPA redirect URI `https://kind-beach-0ba2dc30f.6.azurestaticapps.net/desk-redirect.html` was added and verified on 22 September 2026. The Sites workshop links to that Azure app and does not start Entra sign-in on its own origin. The enterprise application requires assignment, and Sam belongs to its assigned `HL-Opera-FrontDesk` group. The passkey policy, Sam's registered method, actual login, Authentication Details and return to the app still require live verification.
+
+Build with `npm run build:auth` and rehearse in a fresh top-level browser profile: app → Entra → passkey (if offered) → app → matching Entra sign-in event. A fresh profile matters because an existing SSO session can skip the method prompt. Sign out and verify the next operator does not inherit the previous browser session. Microsoft sign-in is not supported inside the workshop's embedded frame; use the **Passkey → app** separate-tab link in Sam's live stage.
+
 
 ## Azure hosting and GitHub
 

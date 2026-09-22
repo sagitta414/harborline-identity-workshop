@@ -2,6 +2,7 @@
 .env.*
 !.env.example
 .private/
+node_modules/
 infra/remote-gateway/init/
 infra/remote-gateway/*credentials.json
 **/__pycache__/
