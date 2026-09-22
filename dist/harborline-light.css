@@ -160,6 +160,7 @@ dialog::backdrop{background:#12314d66!important}
 .studio-route-heading span:last-child{color:var(--hl-blue)!important}
 .external-lens-badge{background:#fff!important;color:var(--hl-blue)!important;border:1px solid var(--hl-sky-strong)!important}
 .journey-demo-status,.journey-demo-status.connected{background:#e8f7ef!important;color:#0f6b45!important;border:1px solid #b7e3cc!important}
+.journey-demo-status.pending{background:#fff3e7!important;color:#87501b!important;border:1px solid #f0c99d!important}
 .whole-journey-outcome blockquote,.whole-journey-outcome p,.whole-journey-outcome li{color:var(--hl-ink)!important}
 .whole-journey-outcome blockquote{border-left:3px solid var(--hl-orange)!important}
 .whole-journey-copy p,.whole-journey-copy li,.external-whole-copy p{color:var(--hl-ink)!important}

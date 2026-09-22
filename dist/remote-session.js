@@ -1,6 +1,6 @@
-import {installLiveCoach} from './live-coach.js?v=20260921-readiness1';
+import {installLiveCoach} from './live-coach.js?v=20260922-review1';
 import {focusRemoteWindow,watchRemoteFocus} from './desktop-focus.js';
-import {installDualStage} from './dual-stage.js?v=20260921-screenroles3';
+import {installDualStage} from './dual-stage.js?v=20260922-review1';
 import {remoteConfig} from './remote-config.js';
 import {people} from './data.js';
 
@@ -224,7 +224,7 @@ export function createRemoteSession() {
     root.hidden = false;
     app.inert = true;
     document.body.classList.add('remote-open');
-    if(!frame&&!dual.connected()){toggleGuide(true);selectLabTab('run');}
+    toggleGuide(false);if(!frame&&!dual.connected())selectLabTab('run');
     if (frame && help.hidden) focusDesktop();
     else root.querySelector('[data-remote="close"]').focus();
   }
@@ -247,7 +247,7 @@ export function createRemoteSession() {
     }
   });
   root.addEventListener('stage-layout-change',e=>{if(e.detail?.layout==='ai'&&!guide.hidden)toggleGuide(false);});
-  root.addEventListener('stage-live-app-open',e=>{if(!guide.hidden)toggleGuide(false);if(!fullscreenActive()&&!root.classList.contains('remote-maximized'))void expand();root.querySelector('#remote-help').textContent=`${e.detail?.label||'Live application'} opened in presentation mode. Use the panel focus controls while presenting.`;});
+  root.addEventListener('stage-live-app-open',e=>{if(!guide.hidden)toggleGuide(false);if(!fullscreenActive()&&!root.classList.contains('remote-maximized'))void expand();root.querySelector('#remote-help').textContent=`${e.detail?.label||'Application'} link opened in presentation mode. Sign-in and outcomes still need live verification.`;});
   document.addEventListener('fullscreenchange', () => {syncFullscreen();requestAnimationFrame(focusDesktop);});
   document.addEventListener('click', refocusWhenUnclaimed);
   window.addEventListener('focus', refocusWhenUnclaimed);

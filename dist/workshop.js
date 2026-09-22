@@ -7,12 +7,12 @@ export const agenda=[
 {time:'11:50',end:'12:20',minutes:30,title:'Story 4 · Sam · managed-hotel shared kiosk',detail:'Kiosk mode, eight sign-ins become one, a clean shift change.',person:3},
 {time:'12:20',end:'13:00',minutes:40,title:'Lunch',detail:'Start HarborPass and the kiosk VM for the afternoon.'},
 {time:'13:00',end:'13:35',minutes:35,title:'Story 5 · Sam · franchise kiosk, external version',detail:'Franchisee-owned device under Harborline management; staff sign in through HarborPass, federated to Entra.',person:4},
-{time:'13:35',end:'14:20',minutes:45,title:'Partner journeys · Tom, Elena, Evan',detail:'The three External ID portals, signed into live: Supplier Desk, Franchise Hub and Integration Exchange.',route:'evan/experience'},
-{time:'14:20',end:'14:35',minutes:15,title:'Afternoon break',detail:'Reset the partner test scope.'},
-{time:'14:35',end:'15:10',minutes:35,title:'Story 6 · Tom · vendor contract ended',detail:'Still enabled, 95 days dormant, and a second key on the Supplier Desk.',person:5},
-{time:'15:10',end:'15:40',minutes:30,title:'Story 7 · Nadia · remote contractor',detail:'Internet-only Autopilot, an external authenticator, a checkout date set at check-in.',person:6},
-{time:'15:40',end:'16:10',minutes:30,title:'Story 8 · Kwame · termination',detail:'Leaver workflow, revoked sessions, a folio security can follow; Tom and Kwame side by side.',person:7},
-{time:'16:10',end:'17:00',minutes:50,title:'From the lab to your environment',detail:'The queries to run against your own tenant, and what to bring back as a baseline.'}
+{time:'13:35',end:'14:35',minutes:60,title:'Evan · Integration Exchange live proof',detail:'External ID sign-in → verified partner → registered integration → app-only token → sandbox allow → production deny → evidence and reset. Elena and Tom have their own story blocks.',route:'evan/experience'},
+{time:'14:35',end:'14:50',minutes:15,title:'Afternoon break',detail:'Reset the partner test scope.'},
+{time:'14:50',end:'15:25',minutes:35,title:'Story 6 · Tom · vendor contract ended',detail:'Still enabled, 95 days dormant, and a second key on the Supplier Desk.',person:5},
+{time:'15:25',end:'15:55',minutes:30,title:'Story 7 · Nadia · remote contractor',detail:'Internet-only Autopilot, an external authenticator, a checkout date set at check-in.',person:6},
+{time:'15:55',end:'16:25',minutes:30,title:'Story 8 · Kwame · termination',detail:'Leaver workflow, revoked sessions, a folio security can follow; Tom and Kwame side by side.',person:7},
+{time:'16:25',end:'17:00',minutes:35,title:'From the lab to your environment',detail:'The queries to run against your own tenant, and what to bring back as a baseline.'}
 ];
 
 // Titles and configuration descriptions are adapted from the supplied reference hub.

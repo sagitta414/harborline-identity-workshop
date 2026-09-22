@@ -1,17 +1,17 @@
 import {caseArchitecture} from './architecture.js?v=20260918-topology';
 import {caseDeployment} from './company-playbooks.js?v=20260921-personas2';
-import {vendorPage,installVendorEvents,lenaGuide} from './vendor.js?v=20260921-wholestory1';
-import {franchisePage,installFranchiseEvents,mayaGuide} from './franchise.js?v=20260921-wholestory1';
-import {partnerPage,installPartnerEvents,nadiaGuide} from './partner.js?v=20260921-wholestory1';
+import {vendorPage,installVendorEvents,tomGuide} from './vendor.js?v=20260922-review1';
+import {franchisePage,installFranchiseEvents,elenaGuide} from './franchise.js?v=20260922-review1';
+import {partnerPage,installPartnerEvents,evanGuide} from './partner.js?v=20260922-review1';
 import {aiContent} from './ai-guide.js?v=20260921-readiness1';
-import {homePage} from './home.js?v=20260921-streamlined2';
+import {homePage} from './home.js?v=20260922-review1';
 import {userMoments,userLinks,userAccount} from './perspectives.js';
 import {buildDemoGuide} from './demo-guide.js';
-import {createRemoteSession} from './remote-session.js?v=20260921-screenroles3';
+import {createRemoteSession} from './remote-session.js?v=20260922-review1';
 import {remoteConfig} from './remote-config.js';
 import {journeyProgress,wholeJourney} from './journey-narrative.js?v=20260921-streamlined2';
 import {people,URLS,SOURCE,AGENTS} from './data.js?v=20260921-streamlined2';
-import {agenda,cases} from './workshop.js?v=20260921-personas2';
+import {agenda,cases} from './workshop.js?v=20260922-review1';
 const app=document.getElementById('app');
 const remote=createRemoteSession();
 const icons={arrow:'<path d="M5 12h14m-5-5 5 5-5 5"/>',external:'<path d="M14 3h7v7m0-7L10 14M10 3H4a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1v-6"/>',play:'<path d="m8 5 11 7-11 7z"/>',grid:'<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>',clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',screen:'<rect x="3" y="3" width="18" height="13" rx="2"/><path d="M12 16v5m-5 0h10"/>',close:'<path d="m6 6 12 12M6 18 18 6"/>',left:'<path d="M19 12H5m5-5-5 5 5 5"/>',signal:'<path d="M3 12h4l3-8 4 16 3-8h4"/>'};
@@ -54,7 +54,7 @@ async function runReadiness(){const button=document.querySelector('[data-action=
 function openReady(){const notes=`./?view=presenter#${person().id}/${state.moment+1}/${state.tab}`;openModal('Before the room arrives',`<div class="readiness-hero"><div><div class="eyebrow">Onsite control room</div><h3>Know the room is ready before the audience arrives.</h3><p>Run the network checks, then complete the tenant proof from the same laptop, Chrome profile, onsite network and display you will use in the room.</p></div><button class="primary" data-action="readiness-check">Run live checks</button></div><div class="readiness-grid">${readinessRow('workshop','Workshop stage','Public site and presentation assets')}${readinessRow('gateway','Protected desktops','Apache Guacamole network path')}${readinessRow('agents','Identity Agents','Live AI action service network path')}${readinessRow('browser','Presentation browser','Fullscreen and presenter synchronization')}</div><p class="source-caption" id="readiness-stamp">Checks have not run in this browser.</p><div class="two-col readiness-manual"><section><h3 class="content-title">Must-pass live proof</h3><ol class="steps"><li>In Chrome on the onsite laptop and network, open every live journey and type into both protected desktops.</li><li>Open Entra in the admin desktop and confirm the intended tenant, account and prepared starting state.</li><li>Run Evan’s primary proof end to end: sign up → allowed sandbox request → denied production action → correlated sign-in and API evidence → reset.</li><li>Run Jordan’s one approved AI action: add the test user to ZZ-DEMO-AI-Replay, verify membership, undo it, then verify absence.</li><li>Check all eight stories and all three partner portals; record any fallback before the audience arrives.</li></ol></section><section><h3 class="content-title">Room and presentation</h3><ol class="steps"><li>Test the projector at 1920 × 1080 and confirm the audience can read the smallest labels.</li><li>At portal interaction, enter Full screen, close the guide and activate the panel the room should follow.</li><li>Keep presenter notes on your private screen; share only the audience window.</li><li>Bring power, HDMI/USB-C adapters and a tested backup hotspot; start both VMs before the session.</li><li>If a live service fails, return to the story and use the presenter guide to narrate the same control path honestly.</li></ol></section></div><div class="note amber"><strong>Final reset matters</strong><br>Evan’s production action must end denied. ZZ-DEMO-AI-Replay must not contain the demo user. Never expose passwords, tenant secrets or private run-sheet details on the shared screen.</div><div class="readiness-actions"><a class="outline" href="${notes}" target="_blank" rel="noopener">Open presenter notes in a normal tab ${icon('external')}</a>${link('Open the Entra admin center','users')}${link('Open your live agents',AGENTS)}</div>`);}
 document.addEventListener('input',e=>{if(e.target.id==='case-search')document.getElementById('catalog-results').innerHTML=catalogRows(e.target.value);});
 document.addEventListener('click',e=>{const b=e.target.closest('[data-action="case"]');if(b)openCase(Number(b.dataset.value));});
-installVendorEvents(render,()=>{remote.setContext('Tom Reilly','Supplier Desk','User view','Prepared Tom account in the external tenant');remote.setGuide(lenaGuide());remote.open();});
-installFranchiseEvents(render,()=>{remote.setContext('Elena Petrova','Franchise Hub','Manager view','Prepared Elena account in the external tenant');remote.setGuide(mayaGuide());remote.open();});
-installPartnerEvents(render,()=>{remote.setContext('Nadia Haddad','Integration Exchange','Partner view','Prepared Nadia account in the external tenant');remote.setGuide(nadiaGuide());remote.open();});
+installVendorEvents(render,()=>{remote.setContext('Tom Reilly','Supplier Desk','User view','Prepared Tom account in the external tenant');remote.setGuide(tomGuide());remote.open();});
+installFranchiseEvents(render,()=>{remote.setContext('Elena Petrova','Franchise Hub','Manager view','Harborline administrator in the external tenant');remote.setGuide(elenaGuide());remote.open();});
+installPartnerEvents(render,()=>{remote.setContext('Evan Torres','Integration Exchange','Partner view','Harborline administrator in the external tenant');remote.setGuide(evanGuide());remote.open();});
 render();if(presenter)channel?.postMessage({type:'request'});
