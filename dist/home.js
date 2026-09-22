@@ -10,19 +10,20 @@ const workforceMeta={
   kwame:['LEAVER','Employee departure','Disable → revoke → prove']
 };
 const external=[
-  {name:'Evan Torres',portrait:'./assets/personas/evan-torres.webp',kind:'PARTNER DEVELOPER',title:'Register an integration. Protect the API.',copy:'A partner signs in, establishes company trust, registers an integration and receives only the machine scope the API allows.',proof:'Sign up → register → allow → deny',href:'#evan/experience',cta:'Open integration journey',primary:true},
-  {name:'Elena Petrova',portrait:'./assets/personas/elena-petrova.webp',kind:'FRANCHISE MANAGER',title:'Run a franchise without becoming an employee.',copy:'External ID handles Elena’s branded sign-in while the Franchise Hub enforces her company, location and role.',proof:'Join → verify business → scoped access',href:'#elena-franchise/experience',cta:'Open franchise journey'},
-  {name:'Tom Reilly',portrait:'./assets/personas/tom-reilly.webp',kind:'EXTERNAL SUPPLIER',title:'Give a supplier useful work, within a boundary.',copy:'Tom’s supplier identity is separate from his Workforce guest. The Supplier Desk and API enforce ClimateWorks scope.',proof:'Sign in → work order → API decision',href:'#tom-vendor/experience',cta:'Open supplier journey'},
-  {name:'Sam Okoro',portrait:'./assets/personas/sam-okoro.webp',kind:'FEDERATED FRANCHISE KIOSK',title:'Keep the desk standard. Let the franchise own sign-in.',copy:'The franchise owns the credential and device context; Harborline applies its kiosk standard and verifies the resulting session.',proof:'Federate → Front Desk → clean handover',person:4,cta:'Open franchise kiosk story'}
+  {name:'Evan Torres',portrait:'./assets/personas/evan-torres.webp',kind:'PARTNER DEVELOPER',title:'Register an integration. Protect the API.',copy:'A partner signs in, establishes company trust, registers an integration and receives only the machine scope the API allows.',proof:'Sign up → register → allow → deny',href:'#evan/experience',aiHref:'#evan/ai',cta:'Open integration journey',primary:true},
+  {name:'Elena Petrova',portrait:'./assets/personas/elena-petrova.webp',kind:'FRANCHISE MANAGER',title:'Run a franchise without becoming an employee.',copy:'External ID handles Elena’s branded sign-in while the Franchise Hub enforces her company, location and role.',proof:'Join → verify business → scoped access',href:'#elena-franchise/experience',aiHref:'#elena-franchise/ai',cta:'Open franchise journey'},
+  {name:'Tom Reilly',portrait:'./assets/personas/tom-reilly.webp',kind:'EXTERNAL SUPPLIER',title:'Give a supplier useful work, within a boundary.',copy:'Tom’s supplier identity is separate from his Workforce guest. The Supplier Desk and API enforce ClimateWorks scope.',proof:'Sign in → work order → API decision',href:'#tom-vendor/experience',aiHref:'#tom-vendor/ai',cta:'Open supplier journey'},
+  {name:'Sam Okoro',portrait:'./assets/personas/sam-okoro.webp',kind:'FEDERATED FRANCHISE KIOSK',title:'Keep the desk standard. Let the franchise own sign-in.',copy:'The franchise owns the credential and device context; Harborline applies its kiosk standard and verifies the resulting session.',proof:'Federate → Front Desk → clean handover',person:4,aiHref:'#samfed/1/ai',cta:'Open franchise kiosk story'}
 ];
 const esc=value=>String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 
 function modelCard(item,index,model){
  const action=item.href?`<a class="journey-card-action" href="${item.href}">${esc(item.cta)} →</a>`:`<button class="journey-card-action" data-action="person" data-value="${item.person??index}">${esc(item.cta||'Open workforce story')} →</button>`;
+ const aiHref=item.aiHref||`#${item.id}/1/ai`;
  return `<article class="journey-card ${model==='external'?'external-model':'workforce-model'} ${item.primary?'featured':''}">
    <div class="journey-card-person"><img src="${esc(item.portrait)}" alt="Portrait of ${esc(item.name)}"><div><span class="journey-kind">${esc(item.kind)}</span><h3>${esc(item.name)}</h3></div></div>
    <h4>${esc(item.title)}</h4><p>${esc(item.copy)}</p>
-   <div class="journey-proof"><span>WHAT YOU SHOW</span><strong>${esc(item.proof)}</strong></div>${action}
+   <div class="journey-proof"><span>WHAT YOU SHOW</span><strong>${esc(item.proof)}</strong></div><div class="journey-card-actions">${action}<a class="journey-card-ai" href="${aiHref}"><span>✦</span> See how the agent helps</a></div>
  </article>`;
 }
 
@@ -37,7 +38,7 @@ function externalJourneys(){
 function workforceJourneys(){
  const cards=workforceIndexes.map(index=>{
    const p=people[index],meta=workforceMeta[p.id];
-   return modelCard({name:p.name,portrait:p.portrait,kind:meta[0],title:meta[1],copy:p.intro,proof:meta[2],person:index,cta:'Open workforce story'},index,'workforce');
+   return modelCard({id:p.id,name:p.name,portrait:p.portrait,kind:meta[0],title:meta[1],copy:p.intro,proof:meta[2],person:index,cta:'Open workforce story'},index,'workforce');
  }).join('');
  return `<section class="journey-collection workforce-collection" id="workforce-journeys" aria-labelledby="workforce-title">
    <header class="collection-heading"><div><span class="collection-number">02</span><span class="collection-model">INTERNAL WORKFORCE IDENTITY</span><h2 id="workforce-title">The employee and collaborator lifecycle.<br>From first day to final removal.</h2></div><p>Use this collection for employees, guests, contractors and shared workplace devices. Follow the source event into identity, authentication, access and application evidence.</p></header>

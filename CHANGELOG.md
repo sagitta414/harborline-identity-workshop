@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.4.5 (2026-09-22)
+
+- Every journey now names the agent that supports its business story and shows the path from identity signals through AI analysis, human approval and verified proof.
+- Jordan’s Identity Conversion Agent, Sam’s Kiosk Experience Agent and Tom’s Dormant Access Review Agent are clearly marked as prepared agents; other journeys are presented as connected agent patterns rather than completed automations.
+- The Workforce AI experience now includes persona imagery, an agent mission card, a four-stage story map and a light Harborline operator console.
+- External ID AI pages use the same visual language for Evan, Elena and External Tom, with their identity, application and API boundaries made explicit.
+- Every homepage journey includes a direct “See how the agent helps” link.
+
 ## 1.4.4 (2026-09-22)
 
 - The External ID section on the home page now lists the four day-in-the-life stories that run on external or franchisee identities (Elena, Jordan, Sam federated, Tom) with the deck's persona labels and "what it proves" lines, linking to each story.
