@@ -28,7 +28,7 @@ export function createRemoteSession() {
   root.setAttribute('aria-labelledby', 'remote-title');
   root.innerHTML = `
     <header class="remote-toolbar">
-      <div class="remote-heading"><img src="./assets/majorkey-logo.svg" alt="MajorKey" width="120" height="24"><div><span class="eyebrow">IDENTITY IN ACTION · GUIDED LAB</span><h2 id="remote-title">Your Entra workspace</h2></div></div>
+      <div class="remote-heading"><img src="./assets/majorkey-logo-dark.svg" alt="MajorKey" width="120" height="24"><div><span class="eyebrow">IDENTITY IN ACTION · GUIDED LAB</span><h2 id="remote-title">Your Entra workspace</h2></div></div>
       <div class="remote-controls">
         <button class="outline remote-guide-toggle" type="button" data-remote="guide" aria-expanded="false" aria-controls="remote-guide">Show guide</button>
         <button class="outline" type="button" data-remote="focus" disabled>Focus admin</button>

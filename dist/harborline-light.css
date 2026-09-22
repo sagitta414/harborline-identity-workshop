@@ -181,3 +181,62 @@ dialog::backdrop{background:#12314d66!important}
 input,select,textarea,.search,input[type=search],input[type=text]{background:#fff!important;color:var(--hl-ink)!important;border:1px solid var(--hl-line)!important}
 input::placeholder{color:var(--hl-muted)!important}
 input:focus,select:focus,textarea:focus{outline:2px solid var(--hl-sky-strong)!important;border-color:var(--hl-blue)!important}
+
+/* Guided lab overlay (remote workspace): light control room */
+#remote-workspace{background:#f4f8fb!important;color:var(--hl-ink)!important}
+#remote-workspace .remote-toolbar{background:#fff!important;border-bottom:1px solid var(--hl-line)!important;color:var(--hl-ink)!important}
+#remote-workspace .remote-toolbar h1,#remote-workspace .remote-toolbar h2,#remote-workspace .remote-toolbar strong{color:var(--hl-navy)!important}
+#remote-workspace .remote-toolbar span,#remote-workspace .remote-toolbar small,#remote-workspace .remote-toolbar p{color:var(--hl-muted)!important}
+#remote-workspace .remote-toolbar .eyebrow,#remote-workspace .remote-toolbar [class*=kicker]{color:var(--hl-blue)!important}
+#remote-workspace .remote-toolbar button{background:#fff!important;color:var(--hl-navy)!important;border:1px solid var(--hl-line)!important}
+#remote-workspace .remote-toolbar button.primary,#remote-workspace .remote-toolbar button[data-remote=close],#remote-workspace .remote-toolbar button[data-remote=back]{background:linear-gradient(135deg,var(--hl-orange-soft),var(--hl-orange))!important;color:#fff!important;border:0!important}
+#remote-workspace .remote-toolbar button[aria-pressed=true],#remote-workspace .remote-toolbar button.active{background:var(--hl-sky-2)!important;border-color:var(--hl-sky-strong)!important}
+#remote-workspace .remote-toolbar button:disabled{opacity:.45}
+#remote-workspace .remote-context{background:var(--hl-sky)!important;color:var(--hl-navy)!important;border-bottom:1px solid var(--hl-line)!important}
+#remote-workspace .remote-context span,#remote-workspace .remote-context small{color:var(--hl-muted)!important}
+#remote-workspace .stage-layout-bar{background:#fff!important;background-image:none!important;border-bottom:1px solid var(--hl-line)!important;color:var(--hl-ink)!important}
+#remote-workspace .stage-view-buttons{background:var(--hl-sky)!important;border:1px solid var(--hl-line)!important}
+#remote-workspace .stage-view-buttons button{color:var(--hl-muted)!important;background:transparent!important}
+#remote-workspace .stage-view-buttons button[aria-pressed=true],#remote-workspace .stage-view-buttons button.active{background:#fff!important;color:var(--hl-navy)!important;box-shadow:0 1px 4px #12314d1f}
+#remote-workspace .stage-active-callout{background:#fff!important;border:1px solid var(--hl-line)!important;color:var(--hl-ink)!important}
+#remote-workspace .stage-active-callout strong,#remote-workspace .stage-active-callout b{color:var(--hl-navy)!important}
+#remote-workspace .stage-active-callout span:first-child,#remote-workspace .stage-active-callout .now-presenting{background:#e8f7ef!important;color:#0f6b45!important}
+#remote-workspace .stage-milestones{background:var(--hl-sky)!important;border-bottom:1px solid var(--hl-line)!important;color:var(--hl-navy)!important}
+#remote-workspace .stage-milestones li{color:var(--hl-navy)!important}
+#remote-workspace .stage-milestones li>span:first-child,#remote-workspace .stage-milestones li b{background:#fff!important;color:var(--hl-blue)!important;border:1px solid var(--hl-sky-strong)!important}
+#remote-workspace .remote-stage{background:#f4f8fb!important}
+#remote-workspace .stage-pane{background:#fff!important;border:1px solid var(--hl-line)!important;box-shadow:0 10px 30px #12314d12!important;color:var(--hl-ink)!important}
+#remote-workspace .stage-pane.active,#remote-workspace .stage-pane[data-active=true],#remote-workspace #stage-admin.on-air{border-color:var(--hl-orange)!important;box-shadow:0 0 0 2px #ff7a3d33,0 10px 30px #12314d12!important}
+#remote-workspace .pane-toolbar{background:var(--hl-sky)!important;background-image:none!important;border-bottom:1px solid var(--hl-line)!important;color:var(--hl-ink)!important}
+#remote-workspace .pane-toolbar h2,#remote-workspace .pane-toolbar h3,#remote-workspace .pane-toolbar strong{color:var(--hl-navy)!important}
+#remote-workspace .pane-toolbar p,#remote-workspace .pane-toolbar small{color:var(--hl-muted)!important}
+#remote-workspace .pane-toolbar button{background:#fff!important;color:var(--hl-navy)!important;border:1px solid var(--hl-line)!important}
+#remote-workspace .pane-status,#remote-workspace .pane-toolbar [class*=status]{background:#fff!important;border:1px solid var(--hl-line)!important;color:var(--hl-muted)!important}
+#remote-workspace .pane-status.on-air,#remote-workspace [class*=status].on-air,#remote-workspace .on-air{color:#0f6b45!important;border-color:#b7e3cc!important;background:#e8f7ef!important}
+#remote-workspace .remote-display{background:#fff!important;color:var(--hl-ink)!important;overflow:auto!important}
+#remote-workspace .remote-display *:not(button):not(iframe){color:var(--hl-ink)}
+#remote-workspace .remote-display h2,#remote-workspace .remote-display h3,#remote-workspace .remote-display strong{color:var(--hl-navy)!important}
+#remote-workspace .remote-display .eyebrow,#remote-workspace .remote-display [class*=kicker],#remote-workspace .remote-display small{color:var(--hl-blue)!important}
+#remote-workspace .remote-display p{color:var(--hl-muted)!important}
+#remote-workspace .remote-welcome{padding:18px 20px!important;gap:10px!important}
+#remote-workspace .remote-welcome svg,#remote-workspace .remote-welcome [class*=icon]{width:40px!important;height:40px!important;margin:0 auto!important}
+#remote-workspace .remote-welcome h2{font-size:clamp(18px,1.8vw,26px)!important;margin:6px 0!important}
+#remote-workspace .pane-shield{background:var(--hl-sky)!important;background-image:none!important;color:var(--hl-navy)!important}
+#remote-workspace .shield-card{background:#fff!important;border:1px solid var(--hl-line)!important;color:var(--hl-ink)!important;box-shadow:0 10px 30px #12314d14!important}
+#remote-workspace .shield-card *{color:var(--hl-ink)!important}
+#remote-workspace .shield-card strong,#remote-workspace .shield-card h3{color:var(--hl-navy)!important}
+#remote-workspace .shield-card span:first-child,#remote-workspace .shield-card .eyebrow{color:var(--hl-orange)!important}
+#remote-workspace .pane-footer,#remote-workspace .remote-footer{background:var(--hl-sky)!important;border-top:1px solid var(--hl-line)!important;color:var(--hl-muted)!important}
+#remote-workspace .pane-footer button,#remote-workspace .remote-footer button,#remote-workspace .pane-footer a,#remote-workspace .remote-footer a{color:var(--hl-blue)!important;background:#fff!important;border:1px solid var(--hl-line)!important}
+#remote-workspace .coach-desktop,#remote-workspace button.coach-desktop{background:linear-gradient(135deg,var(--hl-orange-soft),var(--hl-orange))!important;color:#fff!important;border:0!important}
+#remote-workspace button.primary{background:linear-gradient(135deg,var(--hl-orange-soft),var(--hl-orange))!important;color:#fff!important;border:0!important}
+#remote-workspace .coach-card,#remote-workspace .coach-panel,#remote-workspace [class*=coach-]{color:var(--hl-ink)}
+#remote-workspace .coach-card h2,#remote-workspace .coach-card h3,#remote-workspace .coach-card strong{color:var(--hl-navy)}
+#remote-workspace .coach-card [aria-pressed=true],#remote-workspace .coach-card button.active{background:var(--hl-navy)!important;color:#fff!important}
+#remote-workspace select{background:#fff!important;color:var(--hl-ink)!important;border:1px solid var(--hl-line)!important}
+#remote-workspace .stage-active-callout small{color:var(--hl-muted)!important}
+#remote-workspace .pane-state{color:#0f6b45!important;background:#e8f7ef!important;border:1px solid #b7e3cc!important}
+#remote-workspace .pane-state.standby,#remote-workspace .stage-pane.dimmed .pane-state{color:var(--hl-muted)!important;background:#fff!important;border-color:var(--hl-line)!important}
+#remote-workspace .lab-tabs button{color:var(--hl-muted)!important}#remote-workspace .lab-tabs button[aria-selected=true]{color:var(--hl-blue)!important}
+#remote-workspace .lab-picker label,#remote-workspace .coach-rehearsal p{color:var(--hl-muted)!important}
+#remote-workspace .coach-say h4{color:var(--hl-orange)!important}#remote-workspace .coach-say{background:var(--hl-sky)!important}

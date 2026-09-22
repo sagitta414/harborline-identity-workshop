@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.4.2 (2026-09-21)
+
+Demo review follow-ups.
+
+- Guided lab overlay (the two-screen live stage) now uses the light Harborline theme; it was the last dark purple surface and the one the room sees most.
+- "Open protected session" was clipped inside the admin pane at 1280 x 720; the pane now scrolls and the placeholder is compact enough to fit a projector.
+- MajorKey wordmark in the overlay toolbar switched to the dark variant.
+
 ## 1.4.1 (2026-09-21)
 
 Critical review of every button and story.
