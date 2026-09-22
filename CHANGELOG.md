@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.3.2 (2026-09-21)
+
+Harborline brand pass on the partner journeys.
+
+- Two-sided live stage styles (vendor, franchise and partner live views) restored into `external-live.css`; they had been lost when the loyalty stylesheet was retired. Retinted to the Harborline orange and charcoal palette.
+- Live pane initials and uppercase name leftovers corrected (Tom Reilly, Elena Petrova, Evan Torres).
+
 ## 1.3.1 (2026-09-21)
 
 Critical alignment pass against the client deck (slides 3, 5, 6, 8 to 16, 27).
