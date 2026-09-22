@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.4.0 (2026-09-21)
+
+Light Harborline theme, in the IHG style.
+
+- The whole workshop now renders on white pages with light-blue surfaces, navy headings, blue labels and the orange Harborline mark, replacing the dark purple MajorKey theme (`harborline-light.css`, loaded last).
+- Covers home, the eight persona stories (story, live, AI, admin and user views), the three partner journeys, dialogs and form inputs. Contrast audited on each route type.
+- MajorKey wordmark switched to a dark variant for light backgrounds (`assets/majorkey-logo-dark.svg`).
+
 ## 1.3.3 (2026-09-21)
 
 Harborline Hotels brand made visible across the workshop.
