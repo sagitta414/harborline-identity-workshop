@@ -18,4 +18,9 @@ for(const c of cases){const a=architectures[c.id];assert.ok(a,`Missing architect
 for(const p of people){assert.equal(momentCases[p.id].length,p.moments.length);for(const ids of momentCases[p.id])for(const id of ids)assert.ok(p.cases.includes(id),`Architecture ${id} is not connected to ${p.id}`);}
 const html=await readFile(new URL('../dist/index.html',import.meta.url),'utf8');
 for(const [,asset] of html.matchAll(/(?:src|href)="\.\/([^"]+)"/g))await access(new URL('../dist/'+asset,import.meta.url));
+const home=await readFile(new URL('../dist/home.js',import.meta.url),'utf8');
+const app=await readFile(new URL('../dist/app.js',import.meta.url),'utf8');
+assert.equal((home.match(/class="external-card-person"/g)||[]).length,3);
+assert.doesNotMatch(home+app,/Rewards|loyalty/i);
+assert.match(app,/all eight stories and all three partner portals/);
 console.log('Validated eight day-in-the-life personas, the partner developer journey, 34 use cases, all portal mappings, contiguous 480-minute agenda and local entrypoint assets.');

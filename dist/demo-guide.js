@@ -9,7 +9,7 @@ const guides={
    [[10,5],[
     s('In the Franchise Hub (private window) choose Owner sign in, then Create one. Show the partner sign-up page and its fields.','Elena onboards herself; the flow collects company and hotel.','Do not complete registration unless a mailbox is open for the code. Switch to the pre-made Elena.'),
     s('In the External ID tenant open Users and open Elena Petrova. Show company Bayside Hotels LLC and the hotel attribute.','Her identity exists only in the external directory.','Search the workforce tenant for petrova and show there is nothing.'),
-    s('Open External Identities → User flows → Harborline partner sign-up and show the three attached applications.','One flow serves every partner portal.','Note that guests use no separate flow in this lab; the Rewards programme was removed.')
+    s('Open External Identities → User flows → Harborline partner sign-up and show the three attached applications.','One flow serves every partner portal.','Confirm the three partner applications use the prepared flow.')
    ]],
    [[10,26],[
     s('Sign in as Elena on the Franchise Hub and land on the scorecard for Ballard Locks House.','The flow lands her in the application with no second step.','Confirm the Franchise Manager chip in the header.'),
