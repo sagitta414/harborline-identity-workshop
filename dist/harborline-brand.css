@@ -1,0 +1,35 @@
+/* Harborline Hotels client brand (orange mark, charcoal, cream) applied to the journey pages inside the MajorKey workshop. */
+:root{--hb-orange:#FF7A3D;--hb-orange-deep:#D9451F;--hb-orange-soft:#FF9A6B;--hb-charcoal:#1B1B1F;--hb-ink:#141417;--hb-cream:#FFE3D1}
+.harborline-client{display:inline-flex;align-items:center;gap:9px;color:#fff;text-decoration:none;white-space:nowrap}
+.harborline-client img{width:26px;height:26px;border-radius:7px;box-shadow:0 4px 12px #0006}
+.harborline-client b{font:800 15px/1 Manrope,var(--font,sans-serif);letter-spacing:-.02em}
+.harborline-client small{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--hb-orange-soft)}
+.topbar-client{padding:6px 12px 6px 7px;border:1px solid #ff7a3d55;border-radius:999px;background:#ff7a3d14}
+.home-header .topbar-client{margin-left:6px}
+.topbar .topbar-client{margin-left:14px}
+.harborline-eyebrow{display:inline-flex;align-items:center;gap:8px;color:var(--hb-orange-soft)!important}
+.harborline-eyebrow img{width:16px;height:16px;border-radius:4px}
+.identity-card-top .harborline-client{gap:7px}.identity-card-top .harborline-client img{width:18px;height:18px;border-radius:5px;box-shadow:none}.identity-card-top .harborline-client b{font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+
+/* Journey pages: orange accent, charcoal stage, cream text */
+.harborline-brand.external-chapter{--journey-accent:var(--hb-orange-soft);--journey-glow:#5a2413}
+.harborline-brand .vendor-topbar{border-bottom-color:#ff7a3d33}
+.harborline-brand .vendor-topbar>span:not(.harborline-client){color:var(--hb-orange-soft)}
+.harborline-brand .external-chapter-mast h1 em,.harborline-brand .external-whole-copy h2 em{color:var(--hb-orange-soft)}
+.harborline-brand .external-story-stage-head{background:linear-gradient(105deg,var(--hb-orange-deep),#b33516 58%,var(--hb-charcoal));border-bottom-color:#ff7a3d66}
+.harborline-brand .external-story-stage-head span{color:var(--hb-cream)}
+.harborline-brand .external-chapter-nav a[aria-current=page]{background:#3a2019;box-shadow:inset 0 0 0 1px #ff7a3d99;color:#fff}
+.harborline-brand .external-chapter-nav a[aria-current=page] span{border-color:var(--hb-orange-soft);color:var(--hb-orange-soft)}
+.harborline-brand .external-story-stage-foot a,.harborline-brand .external-ai-head .primary,.harborline-brand .external-live-stage>header button,.harborline-brand .external-live-run button,.harborline-brand a.primary,.harborline-brand button.primary{background:linear-gradient(135deg,var(--hb-orange),var(--hb-orange-deep));color:#fff;border-color:transparent}
+.harborline-brand .external-whole-aside{border-color:#ff7a3d44;background:linear-gradient(160deg,#2a2124,#1b1b1f)}
+.harborline-brand .external-chapter-eyebrow b{border-color:#ff7a3d99}
+.harborline-brand .external-whole-kicker,.harborline-brand .external-whole-takeaway span,.harborline-brand .external-whole-question span,.harborline-brand .external-whole-person span,.harborline-brand .external-ai-kicker,.harborline-brand .vendor-kicker{color:var(--hb-orange-soft)}
+.harborline-brand .external-whole-question blockquote{border-left-color:var(--hb-orange)}
+.harborline-brand .vendor-footer{border-top-color:#ff7a3d33}
+.harborline-brand .vendor-footer span:first-child{color:var(--hb-orange-soft)}
+
+/* Home: partner-journey cards carry the client accent */
+.external-journey-section .identity-model-label{border-left-color:var(--hb-orange)}
+.external-journey-section .identity-model-label span{color:var(--hb-orange-soft)}
+@media(max-width:900px){.topbar-client small,.home-header .topbar-client small{display:none}}
+@media(max-width:720px){.harborline-brand .vendor-topbar .harborline-client small{display:none}}

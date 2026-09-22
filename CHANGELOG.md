@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.3.3 (2026-09-21)
+
+Harborline Hotels brand made visible across the workshop.
+
+- Harborline mark and wordmark (orange on charcoal, matching the live portals and the External ID sign-in) added to the home header, the persona workshop header, the persona identity card and all three partner journey pages (`harborline-brand.css`, `assets/harborline-mark.svg`).
+- Partner journey pages recoloured from teal, amber and blue to the Harborline orange: headline accents, stage header, tabs, kickers, primary buttons.
+- Franchise journey identities now match the tenant: Elena Petrova of Bayside Hotels LLC, hotels HL-SEA-04 and HL-SEA-07, with Northlake Hotels LLC (HL-PDX-02) as the denied franchisee. Partner developer journey names Tidewater Channel Systems instead of Crestline.
+
 ## 1.3.2 (2026-09-21)
 
 Harborline brand pass on the partner journeys.
