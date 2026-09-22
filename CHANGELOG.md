@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.4.3 (2026-09-21)
+
+Word-for-word alignment with the client deck (slides 5, 6, 8 to 15).
+
+- Story titles now match the slide titles (Sam: One sign-in for the whole night audit; Tom: The guest who never checked out; Kwame: Checkout, done properly).
+- Persona descriptors match slide 5 and the story slides (Head office · new hire, Vendor · ClimateWorks, Employee · leaving, and so on).
+- Every moment opens with the deck's own sentence; the presenter guidance follows it.
+- Each story carries the deck's closing line, shown at the end of the complete journey.
+- Sam's story 4 talk track no longer mentions federation (that is story 5).
+
 ## 1.4.2 (2026-09-21)
 
 Demo review follow-ups.
