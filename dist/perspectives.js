@@ -26,19 +26,18 @@ export const userMoments = {
   nadia: [
     ['Begin on Nadia’s remote device.', 'Demonstrate first boot only on an eligible prepared device; otherwise explain the user steps.', 'On the prepared desktop, sign in as Nadia and inspect her available applications.'],
     ['Show Nadia’s actual authentication prompt.', 'Start a fresh persona browser session and open My Apps.', 'Follow the external authentication prompt if it is offered; show the actual result without assuming the policy applied.'],
-    ['Make access and its limits visible.', 'Open My Access as Nadia and inspect available requests and current assignments.', 'Show any displayed expiry date and launch an assigned application from My Apps.'],
-    ['Explain what happens when the contract ends.', 'Inspect Nadia’s current My Access assignments and any displayed end date.', 'Only demonstrate denial after an intentionally staged expiry; the future date alone does not prove access has ended.']
+    ['Explain what happens when the contract ends.', 'Open My Access as Nadia and inspect assignments and any displayed end date.', 'Only demonstrate denial after an intentionally staged expiry; the future date alone does not prove access has ended.']
   ],
   sam: [
-    ['Clock in as Sam.', 'Use sam.fed@fed.arrow-creations.us in a separate browser profile and open My Apps.', 'Follow the redirect to HarborPass and the return to the application.'],
-    ['Follow a working session through the shift.', 'On the prepared kiosk, show Sam’s current application session and any actual prompts.', 'Compare with Admin view’s report-only results; the policy does not enforce the narrated reduction in prompts.'],
-    ['Walk through the recovery experience.', 'Describe the approved support handoff before intentionally changing any authentication method.', 'After an authorized recovery demonstration, show the resulting sign-in or Security info page.'],
-    ['Hand the kiosk to the next person.', 'Sign out of the application and Windows as required by the prepared kiosk mode.', 'Verify that the next session does not expose Sam’s applications or data; show the device directly.']
+    ['Clock in on the shared PC.', 'Open the kiosk session and show the Harborline Desk sign-in page; Windows shows no personal identity.', 'Sign in as Sam at the application, not at Windows.'],
+    ['Work a shift with one sign-in.', 'Open the assigned applications and count the prompts against the report-only policy.', 'Compare with Admin view: the policy models the reduction; it does not enforce it yet.'],
+    ['Hand the kiosk to the next person.', 'Sign out of the application and Windows as the kiosk mode requires.', 'Verify the next session exposes nothing of Sam’s.']
   ],
   tom: [
     ['Inspect the access that remains.', 'If this is an authorized lab sign-in, open My Apps as Tom and observe the actual result.', 'Do not assume an enabled account grants access to every application; compare with Admin view.'],
     ['Connect a missed control to its impact.', 'Show Tom’s actual remaining tiles or My Access assignments if sign-in is allowed.', 'Pair that result with workflow and review history in Admin view.'],
-    ['Separate a recommendation from an outcome.', 'Before an approved cleanup, record the current user experience.', 'After an intentionally executed cleanup, use a fresh sign-in to verify the result; do not present the proposal as completed.']
+    ['Separate a recommendation from an outcome.', 'Before an approved cleanup, record the current user experience.', 'After an intentionally executed cleanup, use a fresh sign-in to verify the result; do not present the proposal as completed.'],
+    ['Show the second key.', 'Sign in to the Supplier Desk as tom.reilly@climateworks.example.', 'His ClimateWorks records appear; nothing in the workforce offboarding would touch them.']
   ],
   kwame: [
     ['Observe the departure boundary.', 'In an authorized lab test, use a fresh persona session to attempt sign-in.', 'Show the actual denial or access result and compare it with the current account state.'],

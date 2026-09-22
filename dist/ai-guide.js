@@ -53,7 +53,7 @@ function consoleView(person,moment,a,r){
 
 export function aiContent(p,m,index){
  const a=aiStories[p.id],r=recipes[p.id];
- const rehearsalNote=p.id==='jordan'?'<b>PRIMARY LIVE AI ACTION</b><span>Add the prepared test identity to <code>ZZ-DEMO-AI-Replay</code>, verify the membership and audit event, undo the membership, then verify the restored state.</span>':'<b>PLANNING AND EXPLANATION</b><span>Use this journey to show analysis and a preview. The workshop’s single live write action is Jordan’s rehearsed Add → Verify → Undo sequence in <code>ZZ-DEMO-AI-Replay</code>.</span>';
+ const rehearsalNote=p.id==='jordan'?'<b>AGENTS RECOMMEND, PEOPLE DECIDE</b><span>The agents read the tenant and propose; they make no changes. The one write in the workshop is the presenter’s own rehearsed Add → Verify → Undo on <code>ZZ-DEMO-AI-Replay</code>, performed by a named person after the proposal.</span>':'<b>PLANNING AND EXPLANATION</b><span>Use this journey to show analysis and a preview. Agents make no changes. The workshop’s single write is the presenter’s rehearsed Add → Verify → Undo sequence in <code>ZZ-DEMO-AI-Replay</code>.</span>';
  return `<div class="ai-operator">
   <header class="ai-hero"><div><span class="ai-label">AI IN THE FLOW OF WORK · ${escape(p.name)}</span><h3>${escape(a.title)}</h3><p>${escape(a.benefit)}</p></div><div class="ai-capabilities"><span><i></i>Live Graph read</span><span>Azure OpenAI reasoning</span><span>Human approval</span><span>Reversible rehearsal</span></div></header>
   <section class="ai-moment-focus"><div><span>THIS MOMENT · ${escape(m.short)}</span><strong>${escape(a.moments[index])}</strong></div><p><b>Decision owner</b>${escape(a.decision)}</p></section>

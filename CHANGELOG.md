@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.3.1 (2026-09-21)
+
+Critical alignment pass against the client deck (slides 3, 5, 6, 8 to 16, 27).
+
+- Each story's use cases now match slide 6 exactly, and each step carries the deck's title and the Microsoft product behind it (slides 8 to 15).
+- Story 4 (Sam, managed-hotel kiosk) reduced to the deck's three steps; the federated sign-in lives only in story 5. Story 6 (Tom) gains the deck's fourth step, the second key on the Supplier Desk. Story 7 (Nadia) reduced to three steps.
+- Workshop agenda rebuilt in the deck's order (eight stories plus the partner journeys), still a contiguous 480 minutes.
+- Use-case catalog areas renamed and regrouped to the deck's nine areas and counts (slide 3).
+- AI guidance restated to match slide 27: agents recommend and make no changes; the one rehearsed write is the presenter's.
+- Hero subtitle names Sofia as the first story.
+
 ## 1.3.0 (2026-09-21)
 
 Aligned the workshop with *Harborline Reference Lab - Use Cases and Journeys (3).pptx* and with the identities that exist in the two tenants.

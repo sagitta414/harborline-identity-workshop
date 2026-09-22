@@ -87,8 +87,7 @@ const guides={
    s('In Sofia’s user record → Authentication methods, inspect existing methods. For a prepared enrollment demo, an authorized operator can create a Temporary Access Pass with an appropriate lifetime and use policy. Deliver it privately.','A TAP is a temporary bootstrap credential, not a permanent shared demo password.','Its validity and allowed use must cover the registration session. The actual TAP must never be placed on this public page.'),
    s('In Sofia’s separate session, sign in with the prepared method and open Security info → Add sign-in method. Complete only the method supported by the device, then verify it appears in Security info.','The user should finish with a method she can use again.','Show the registered method and an intentional follow-up sign-in. Explain that SMS being enabled means the tenant is not wholly passwordless.')
   ]]
- ],
- nadia:[
+ ],nadia:[
   [[4,22],[
    s('In Intune, find Windows enrollment and the remote Autopilot deployment profile. Inspect its deployment mode, join type and out-of-box settings.','Nadia receives her device at home without an onsite technician.','The settings should match the intended remote experience; the lab source marks this scenario as needing a device.'),
    s('Inspect the profile assignment to HL-Autopilot-RemoteCC, its membership rule or members, and the matching Enrollment Status Page assignment.','A correct profile helps only when the intended device receives it.','Verify a prepared device is registered and targeted; show which required apps can block setup.'),
@@ -100,36 +99,25 @@ const guides={
    s('In Nadia’s fresh browser session, open My Apps and follow the actual authentication prompt. Then inspect her sign-in log event → Authentication details and Conditional Access.','The prompt and event connect policy to Nadia’s experience.','Show the method and result actually recorded. If the external method is not offered, investigate targeting rather than presenting it as successful.')
   ]],
   [[27,31],[
-   s('Open Nadia’s user record and prepared contract source. Compare her current assignments, sponsor/owner and contract-end value.','A remote contractor needs clear responsibility and a time boundary.','The scenario references 31 December 2026; verify the actual value and where it is maintained.'),
-   s('Open the relevant access package → Policies. Inspect who can request it, required approval, assignment duration/expiry and review settings. Open Assignments to find Nadia.','A time-bound policy must apply to the actual assignment to control her access.','Compare assignment expiry with the contract date. A default duration alone does not prove they agree.'),
-   s('Switch to Nadia’s profile → My Access. Open her package/assignment details and show any displayed expiry or request status, then launch an assigned app from My Apps.','Nadia should see both what she can use and how long access lasts.','Show real assigned access. If no package applies, explain the missing control rather than inventing an assignment.')
-  ]],
-  [[27,31],[
    s('Reopen Nadia’s contract-end source and current assignments. Record the end date and time zone used by the control.','The end of the engagement must be interpreted consistently.','A future end date is a planned boundary, not evidence that access has already expired.'),
    s('Inspect the applicable expiry workflow’s scope, schedule and tasks. Open the related access review to show its reviewers, recurrence and result-application settings.','Expiry and review require both a decision and a mechanism that applies it.','Identify which control removes which entitlement and who handles exceptions.'),
    s('Describe the post-expiry checks: workflow history, assignment removal, a fresh sign-in result and application access. Use a separately staged test if a live outcome is required.','The client needs evidence that the date caused the intended access change.','Keep Nadia’s future scenario intact; identify every outcome that has not yet been tested.')
   ]]
- ],
- sam:[
-  [[8,19,30],[
-   s('In Entra ID → Domain names, compare the managed domain with fed.arrow-creations.us. Show the configured federation information available in the lab.','Sam’s identity provider can differ from the application’s token issuer.','Identify the federated domain and HarborPass relationship; a domain label alone is not proof of a successful sign-in.'),
-   s('In Sam’s separate browser profile, open My Apps and enter sam.fed@fed.arrow-creations.us. Follow the redirect to HarborPass using the privately held federated-account credential.','This is Sam arriving for his 22:00 shift; his federated account drives the redirect.','Confirm the destination and account. sam.okoro@arrow-creations.us is a different workforce identity.'),
-   s('After authentication, launch a prepared assigned app. In the admin profile, find the matching sign-in event and inspect its result.','The handoff must finish with usable application access.','If HarborPass cold-starts or fails, show federation configuration and label the end-to-end sign-in as unverified.')
+ ],sam:[
+  [[24],[
+   s('Open Intune → Devices → Configuration and show the shared-PC profile and the Edge kiosk profile assigned to HL-Devices-Kiosk.','The kiosk only runs the apps the desk needs.','Assignment by device group is the control; the hardware is a lab VM.'),
+   s('Open the device record for hl-kiosk-01 and show Entra join, enrollment and compliance.','A shared device is still a managed device.','Compliance may show a grace period; say so.'),
+   s('If the VM is running, open the kiosk session and show the Harborline Desk sign-in page with no Windows identity.','Windows never carries a personal identity here.','Do not sign in to Windows as a persona.')
   ]],
-  [[24,30],[
-   s('Open Protection → Conditional Access → Policies and locate HL-CA04. Inspect user/group targeting, target resources, exclusions and device conditions.','The shared-device policy should affect the intended kiosk sessions.','Check whether Sam and the prepared device are actually in scope.'),
-   s('Open the policy’s Session controls and inspect sign-in frequency and any other configured controls. Show its current policy state.','Prompt frequency affects a long shift, but the enforcement state determines actual behavior.','The reference describes a 12-hour frequency and report-only mode; verify both before describing them.'),
-   s('Open Sam’s sign-in event → Report-only and Conditional Access details. Compare the recorded evaluation with his observed application prompts.','This connects the proposed experience to evidence without claiming an unmeasured improvement.','Report-only does not enforce HL-CA04. The agent’s eight-to-one prompt reduction is a simulation.')
+  [[3,24],[
+   s('Open Protection → Conditional Access → Policies → HL-CA04. Show the twelve-hour sign-in frequency for shared devices and the report-only state.','Eight prompts a shift become one when the policy is right.','Report-only: show the what-if outcome, not enforcement.'),
+   s('Open Authentication methods and show passkeys enabled for the no-mobile population.','A strong method that does not need a phone.','Registration needs a real device with Windows Hello; describe it on a borrowed laptop.'),
+   s('Open PIM and show Riley Support eligible for Authentication Administrator scoped to one administrative unit.','A lost method mid-shift is recovered by a scoped operator, not a password reset.','Activation is just-in-time; do not activate it live unless rehearsed.')
   ]],
-  [[13],[
-   s('In the admin profile, inspect AU-Riverside membership and Riley Support’s eligible Authentication Administrator assignment in Privileged Identity Management.','The operator’s recovery authority should have a clear boundary.','Confirm the target Sam identity is within the administrative unit and the assignment has the intended scope.'),
-   s('Explain the operator’s identity-verification and role-activation procedure. In a prepared operator session, inspect activation requirements such as justification, approval and duration.','A lost authenticator must not allow an unverified caller to take over an account.','Use the actual configured operator procedure; browsing this guide does not activate or authorize a role.'),
-   s('If an intentional recovery demo is prepared, use the approved operator session and method. Otherwise inspect Sam’s Authentication methods without resetting anything. After recovery, show Sam’s new sign-in and the operator audit event.','The story ends with restored access and an accountable action.','Identify who acted, on which identity, at what time, and the observed recovery result.')
-  ]],
-  [[24,25,26],[
-   s('Use the prepared hl-kiosk-01 device, not the frontline desktop simply because it is already open. In Intune inspect its shared-PC/session configuration and assignment status.','Sam’s 06:00 handover is a property of the actual kiosk setup.','Confirm Windows identity, application identity and device identity separately.'),
-   s('Inside the kiosk session, sign out of the application and end the Windows session as required by its prepared mode. Start the next demo user session.','The next colleague must not inherit Sam’s application access.','Check account menus and access to the previous app session; do not infer cleanup from a closed browser window.'),
-   s('For a separately prepared offline demonstration, compare a returning cached user with a first-time cloud user and show recovery after connectivity returns.','Offline behavior is different from normal online authentication.','Do not disconnect the active remote gateway. If no isolated kiosk test is ready, describe the steps and mark the result untested.')
+  [[24],[
+   s('On the kiosk, sign out of the application and Windows as the profile requires.','The person leaves, the device stays controlled.','Follow the prepared kiosk mode exactly.'),
+   s('Open a new session and show nothing of Sam’s remains.','The morning team inherits nothing.','Browser state, sessions and local data are cleared.'),
+   s('Mention use case 25, offline behaviour, as a separate demonstration.','Do not imply first-time cloud sign-in works offline.','Keep the two scenarios separate.')
   ]]
  ],
  tom:[
@@ -147,6 +135,11 @@ const guides={
    s('Open the prepared review-agent case for Tom. Read the cited identity, end date, assignments and activity evidence before its recommendation.','An actionable review starts with evidence tied to the correct person.','Check freshness, source and scope; separate scenario narrative from actual retrieved records.'),
    s('Walk through each proposed change, affected entitlement, approver and execution owner. Explain the effect on Tom’s next sign-in and existing app sessions.','The reviewer needs to understand the consequences before approving cleanup.','A proposed disable or removal remains a proposal until the relevant control executes.'),
    s('If a cleanup was intentionally approved and run, show the execution result and audit trail, refresh Tom’s record, and use a fresh persona session to verify access. Otherwise finish at the decision point.','The outcome needs both administrative evidence and a user-side result.','Keep the before-state, decision and after-state separate; record failures and remaining downstream access.')
+  ]],
+  [[5],[
+   s('Switch to the External ID tenant (harborlineext) and open Users → Tom Reilly. Show the ClimateWorks HVAC company attribute.','The same human holds a second identity in a second population.','This account is untouched by the workforce leaver process.'),
+   s('Sign in to the Supplier Desk as tom.reilly@climateworks.example and show his ClimateWorks records.','A vendor survives an offboarding through the door nobody tracked.','Use the External ID password from the run sheet, not the workforce demo password.'),
+   s('Ask who owns the external lifecycle for vendors in the client’s environment.','Two populations need two owners and two end dates.','Tie it back to use case 5, population placement.')
   ]]
  ],
  kwame:[
@@ -191,23 +184,19 @@ const highlights = {
   ['Find Sofia’s frontline device','Check policies and compliance','Show her managed desktop'],
   ['Review Sofia’s current access','Explain the housekeeping access pattern','Open her assigned applications'],
   ['Check eligible authentication methods','Prepare a private bootstrap credential','Show registration and sign-in']
- ],
- nadia: [
+ ],nadia: [
   ['Inspect remote device setup','Verify profile and group targeting','Walk through arrival at the desktop'],
   ['Inspect the external authenticator','Confirm Nadia’s policy scope','Match her prompt to sign-in evidence'],
-  ['Confirm the contract boundary','Review approval and expiry rules','Show Nadia’s available access'],
   ['Verify the engagement end date','Trace expiry and review controls','Define the proof of access removal']
- ],
- sam: [
-  ['Compare managed and federated identities','Follow Sam’s HarborPass sign-in','Verify access to his application'],
-  ['Check the kiosk policy scope','Explain session and prompt controls','Compare report-only results with experience'],
-  ['Confirm the support operator’s scope','Explain identity checks and recovery','Verify restored access and audit evidence'],
-  ['Inspect the prepared kiosk','End Sam’s session and test handover','Explain the separate offline scenario']
- ],
- tom: [
+ ],sam: [
+  ['Show the kiosk profiles','Open the kiosk device record','Open the kiosk session'],
+  ['Show HL-CA04 report-only','Show passkeys for the no-mobile population','Show the scoped recovery operator'],
+  ['Sign out as the profile requires','Show the next session is clean','Keep offline behaviour separate']
+ ],tom: [
   ['Compare contract end and account state','Inspect access that remains','Observe Tom’s actual sign-in result'],
   ['Check the expiry workflow scope','Locate execution gaps or failures','Review decisions and applied results'],
-  ['Read the review agent’s evidence','Explain the proposed cleanup decision','Verify outcomes after approved execution']
+  ['Read the review agent’s evidence','Explain the proposed cleanup decision','Verify outcomes after approved execution'],
+  ['Find Tom in the External ID tenant','Sign in to the Supplier Desk as Tom','Ask who owns the vendor lifecycle']
  ],
  kwame: [
   ['Verify the departure and account state','Compare Kwame’s outcome with Tom’s','Test the fresh sign-in boundary'],
