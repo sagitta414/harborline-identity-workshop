@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.4.1 (2026-09-21)
+
+Critical review of every button and story.
+
+- Partner developer journey tabs routed to Nadia's day-in-the-life story (`#nadia/...`), because `nadia` became a persona id. Journey routes are now `tom-vendor`, `elena-franchise` and `evan` everywhere.
+- Tom's fourth moment built its AI agent link with `undefined`; the AI guide now carries four prompts for Tom, and Sam's and Nadia's prompts match their three moments (the old federation and recovery prompts are gone from story 4).
+- Company playbook moment texts realigned: Sam (kiosk, no federation), Tom (fourth moment, the second key in the external tenant), Nadia (three moments).
+- Franchise journey now matches the tenant and story 2: Elena Petrova is the franchise manager at Bayside Hotels LLC for Ballard Locks House (HL-SEA-04); Cannery Pier Hotel (Northlake Hotels LLC) is denied; Royalties stay with the owner, Lena Fischer. Live pane initials EP and ET.
+- Vendor journey properties match the Supplier Desk contract: Elliott Landing, Ballard Locks House and Cannery Pier.
+- Stale Leo Fischer and Maya Chen references removed from the presenter context, company playbooks, use-case depth and the recovery use case.
+- Crawl: 122 routes, every button clicked, 0 script errors, 0 broken hashes; all 45 external links (portals, Entra, Intune, identity agents, HarborPass, remote gateway) respond.
+
 ## 1.4.0 (2026-09-21)
 
 Light Harborline theme, in the IHG style.
