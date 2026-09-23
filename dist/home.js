@@ -1,13 +1,14 @@
 import {people} from './data.js?v=20260921-streamlined2';
 
-const workforceIndexes=[0,2,3,5,6,7];
+const workforceIndexes=[0,2,3,5,6,7,8];
 const workforceMeta={
   sofia:['JOINER','First-day readiness','Hire → device → access'],
   jordan:['IDENTITY CHANGE','Franchise to managed','Transfer → property access'],
   sam:['SHARED WORKPLACE','Managed-hotel kiosk','Passkey → app → handover'],
   tom:['GOVERNANCE GAP','Workforce vendor identity','End date → removal → denial'],
   nadia:['TIME-BOUND WORK','Remote contractor','Remote setup → expiry'],
-  kwame:['LEAVER','Employee departure','Disable → revoke → prove']
+  kwame:['LEAVER','Employee departure','Disable → revoke → prove'],
+  aiko:['AGENT IDENTITY','An agent with an identity','Build → approve → prove']
 };
 const external=[
   {name:'Evan Torres',portrait:'./assets/personas/evan-torres.webp',kind:'PARTNER DEVELOPER',title:'Register an integration. Protect the API.',copy:'A partner signs in, establishes company trust, registers an integration and receives only the machine scope the API allows.',proof:'Sign up → register → allow → deny',href:'#evan/experience',aiHref:'#evan/ai',cta:'Open integration journey',primary:true},

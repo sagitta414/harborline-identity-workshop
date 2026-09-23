@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.5.0 (2026-09-23)
+
+- Story 9, Aiko Tanaka: an agent with an identity. Aiko builds a concierge agent in Agent Studio; it becomes a real application and service principal with her as owner, Security approves its scopes as application roles on the Harborline Agent Gateway (one refused), it signs in with its own token, asks the Housekeeping and Revenue agents (each answering with its own identity), is refused at the gateway when it steps outside its scopes, and is retired like a leaver. Five moments, use cases 33 and 34, admin and user guides, AI pattern, company playbook and narrative.
+- Every story now carries a live console panel with the account to use: Manager Console and New Hire Checklist (Sofia), Franchise Onboarding Desk (Elena), Property Transfer Console (Jordan), Shift Board (Sam), Franchise Device Standard (Sam federated, Ines), Vendor Access Review (Tom), Contractor Pass (Nadia), Offboarding Folio (Kwame) and Agent Studio (Aiko), plus Harborline HR where the hire and leave dates are written.
+- URL map extended with the consoles, Harborline HR and Enterprise applications; the readiness checklist counts nine stories and the live consoles.
+- Validator checks nine personas, seven workforce cards and a resolvable live console on every story.
+
 ## 1.4.5 (2026-09-22)
 
 - Every journey now names the agent that supports its business story and shows the path from identity signals through AI analysis, human approval and verified proof.
