@@ -13,8 +13,44 @@ var __export = (target, all) => {
     __defProp(target, name3, { get: all[name3], enumerable: true });
 };
 
-// dist/desk.js?v=20260922-property1
+// dist/desk.js?v=20260923-cc1
 var desk_exports = {};
+function ccRecord(title, detail2) {
+  cc.activity.unshift({ title, detail: `${now()} \xB7 ${detail2}` });
+  cc.activity = cc.activity.slice(0, 8);
+}
+function ccHeader() {
+  return `<aside class="rail"><div class="rail-brand"><img src="./assets/harborline-mark.svg" alt=""><div><strong>Harborline</strong><small>${wsTitle}</small></div></div><div><span class="rail-group-label">WORKSPACE</span><nav class="rail-nav" aria-label="Contact center navigation">${[["overview", "Overview", "overview"], ["queue", "Call queue", "service"], ["reservations", "Reservations", "arrivals"], ["callbacks", "Callbacks", "rooms"]].map(([key, label, icon]) => `<button type="button" data-ccview="${key}" aria-label="${label}" ${ccView === key ? 'aria-current="page"' : ""}>${ico(icon)}<span>${label}</span></button>`).join("")}</nav></div><div class="rail-bottom"><strong>Harborline Contact Center</strong>Remote \xB7 all hotels<br>Role in token: ${esc(roleLabel)}</div></aside><div class="desk-main"><header class="topline"><div class="property"><i class="property-mark" aria-hidden="true"></i><strong>Contact Center</strong><span>\xB7 every Harborline hotel</span></div><div class="top-actions"><span class="demo-pill">DEMO DATA \xB7 NOT CONNECTED TO CRS</span>${entraIdentity ? '<span class="identity-pill">ENTRA SESSION</span><button class="top-signout" type="button" data-action="sign-out">Sign out</button>' : '<a class="top-signin" href="https://kind-beach-0ba2dc30f.6.azurestaticapps.net/desk-auth.html?tenant=workforce" target="_blank" rel="noopener noreferrer">Sign in with Entra \u2197</a>'}<div class="operator">${operatorImage()}<span><strong>${esc(operator)}</strong><small>${entraIdentity ? esc(entraIdentity.username) : "Remote agent"}</small></span></div></div></header><main class="main-inner" id="desk-main">`;
+}
+function ccLead(kicker, title, description, action = "") {
+  return `<div class="page-lead"><div><div class="eyebrow">${esc(kicker)}</div><h1>${esc(title)}</h1><p>${esc(description)}</p></div><div class="lead-actions">${action}</div></div>`;
+}
+function ccRoleNote() {
+  return `<section class="panel"><div class="panel-head"><div><h2>Why this desk</h2><p>Authentication proved who signed in; the role in the token chose the workspace</p></div></div><div class="side-panel-body"><p class="muted">${esc(operator)} carries <strong>${esc(roleLabel)}</strong>. A front-office role would open the property desk with rooms and keys; this role opens reservations and the call queue across every hotel, with no room or key controls. Same application, different authorisation.</p></div></section>`;
+}
+function ccActivity() {
+  return `<section class="panel"><div class="panel-head"><div><h2>Shift activity</h2><p>Actions in this demo session</p></div></div><div class="side-panel-body activity">${cc.activity.map((a) => `<div class="activity-item"><i aria-hidden="true"></i><div><strong>${esc(a.title)}</strong><small>${esc(a.detail)}</small></div></div>`).join("")}</div></section>`;
+}
+function callRow(c) {
+  return `<div class="row static"><span class="row-icon">${esc(c.caller.split(" ").map((x) => x[0]).join(""))}</span><span class="row-main"><strong>${esc(c.caller)}</strong><small>${esc(c.hotel)} \xB7 ${esc(c.reason)}</small></span><span class="row-end"><span class="status ${mark(c.status)}">${esc(c.status)}</span><small>${esc(c.wait)}</small></span>${c.status === "Waiting" ? `<button class="btn subtle" type="button" data-take="${esc(c.id)}">Take call</button>` : c.status === "On call" ? `<button class="btn subtle" type="button" data-wrap="${esc(c.id)}">Wrap up</button>` : ""}</div>`;
+}
+function ccOverview() {
+  const waiting = cc.queue.filter((c) => c.status === "Waiting").length;
+  return `${ccLead("Remote shift", "Good morning, " + operator.split(" ")[0] + ".", "Work the queue, find any reservation at any hotel, and clear callbacks before the shift ends.", `<button class="btn primary" type="button" data-ccview="queue">Open the queue \u2192</button>`)}<div class="stats">${stat("Calls waiting", waiting, "Across all hotels", waiting > 2)}${stat("On call", cc.queue.filter((c) => c.status === "On call").length, "Right now")}${stat("Reservations", cc.reservations.filter((r) => r.status !== "Departed").length, "Active in this demo")}${stat("Callbacks open", cc.callbacks.filter((t) => t.status === "Open").length, "Promised today", cc.callbacks.some((t) => t.status === "Open"))}</div><div class="split"><section class="panel"><div class="panel-head"><div><h2>Next in queue</h2><p>Longest waiting first</p></div></div><div class="list">${cc.queue.filter((c) => c.status !== "Done").slice(0, 4).map(callRow).join("") || '<div class="empty">Queue is clear</div>'}</div></section><div class="side">${ccRoleNote()}${ccActivity()}</div></div>`;
+}
+function ccQueue() {
+  return `${ccLead("Contact center", "Call queue", "Take the next caller, resolve, wrap up.")}<div class="panel"><div class="panel-head"><div><h2>Live queue</h2><p>Demo callers across the portfolio</p></div><span class="count">${cc.queue.filter((c) => c.status !== "Done").length} active</span></div><div class="list">${cc.queue.filter((c) => c.status !== "Done").map(callRow).join("") || '<div class="empty">Queue is clear</div>'}</div></div>`;
+}
+function ccReservations() {
+  const rows = cc.reservations.filter((r) => `${r.name} ${r.id} ${r.hotel}`.toLowerCase().includes(ccSearch.toLowerCase()));
+  return `${ccLead("Reservations", "Find a reservation", "Any guest, any hotel. Confirm, hold or release from here.")}<div class="panel"><div class="toolbar"><strong class="table-title">All hotels</strong><input class="search" type="search" id="cc-search" placeholder="Guest, reservation or hotel" value="${esc(ccSearch)}" aria-label="Search reservations"></div><div class="list" id="cc-list">${rows.map((r) => `<div class="row static"><span class="row-icon">${esc(r.name.split(" ").map((x) => x[0]).join(""))}</span><span class="row-main"><strong>${esc(r.name)}</strong><small>${esc(r.id)} \xB7 ${esc(r.hotel)} \xB7 ${esc(r.dates)} \xB7 ${esc(r.type)}</small></span><span class="row-end"><span class="status ${mark(r.status)}">${esc(r.status)}</span></span>${r.status === "Hold" ? `<button class="btn subtle" type="button" data-confirm="${esc(r.id)}">Confirm</button>` : ""}</div>`).join("") || '<div class="empty">No reservations match</div>'}</div></div>`;
+}
+function ccCallbacks() {
+  return `${ccLead("Promises to guests", "Callbacks", "Close each callback once the guest has been called.")}<div class="panel"><div class="panel-head"><div><h2>Callback list</h2><p>Visible to the current demo shift</p></div><span class="count">${cc.callbacks.filter((t) => t.status === "Open").length} open</span></div><div class="list">${cc.callbacks.map((t) => `<div class="row static"><span class="row-icon">${esc(t.name.split(" ").map((x) => x[0]).join(""))}</span><span class="row-main"><strong>${esc(t.name)}</strong><small>${esc(t.hotel)} \xB7 ${esc(t.note)}</small></span><span class="row-end"><span class="status ${mark(t.status)}">${esc(t.status)}</span></span>${t.status === "Open" ? `<button class="btn subtle" type="button" data-callback="${t.id}">Called</button>` : ""}</div>`).join("")}</div></div>`;
+}
+function ccBody() {
+  return ccView === "queue" ? ccQueue() : ccView === "reservations" ? ccReservations() : ccView === "callbacks" ? ccCallbacks() : ccOverview();
+}
 function record(title, detail2) {
   data.activity.unshift({ title, detail: `${now()} \xB7 ${detail2}` });
   data.activity = data.activity.slice(0, 8);
@@ -31,7 +67,7 @@ function notify(message) {
 }
 function header() {
   const property = currentProperty();
-  return `<aside class="rail"><div class="rail-brand"><img src="./assets/harborline-mark.svg" alt=""><div><strong>Harborline</strong><small>FRONT DESK</small></div></div><div><span class="rail-group-label">WORKSPACE</span><nav class="rail-nav" aria-label="Front desk navigation">${[["overview", "Overview"], ["arrivals", "Arrivals & guests"], ["rooms", "Room board"], ["service", "Guest service"]].map(([key, label]) => `<button type="button" data-view="${key}" aria-label="${label}" ${view === key ? 'aria-current="page"' : ""}>${ico(key)}<span>${label}</span></button>`).join("")}</nav></div><div class="rail-bottom"><strong>${esc(property.name)}</strong>${esc(property.place)}<br>Shared front desk \xB7 demo environment</div></aside><div class="desk-main"><header class="topline"><div class="property"><i class="property-mark" aria-hidden="true"></i><strong>${esc(property.name)}</strong><span>\xB7 ${esc(property.place)}</span></div><div class="top-actions"><span class="demo-pill">${propertyDemo ? "SCRIPTED ACCESS PREVIEW" : "DEMO DATA"} \xB7 NOT CONNECTED TO PMS</span>${entraIdentity ? '<span class="identity-pill">ENTRA SESSION</span><button class="top-signout" type="button" data-action="sign-out">Sign out</button>' : '<a class="top-signin" href="https://kind-beach-0ba2dc30f.6.azurestaticapps.net/desk-auth.html" target="_blank" rel="noopener noreferrer">Sign in with Entra \u2197</a>'}<div class="operator">${operatorImage()}<span><strong>${esc(operator)}</strong><small>${entraIdentity ? esc(entraIdentity.username) : "Front desk shift"}</small></span></div></div></header><main class="main-inner" id="desk-main">`;
+  return `<aside class="rail"><div class="rail-brand"><img src="./assets/harborline-mark.svg" alt=""><div><strong>Harborline</strong><small>${wsTitle}</small></div></div><div><span class="rail-group-label">WORKSPACE</span><nav class="rail-nav" aria-label="Front desk navigation">${[["overview", "Overview"], ["arrivals", "Arrivals & guests"], ["rooms", "Room board"], ["service", "Guest service"]].map(([key, label]) => `<button type="button" data-view="${key}" aria-label="${label}" ${view === key ? 'aria-current="page"' : ""}>${ico(key)}<span>${label}</span></button>`).join("")}</nav></div><div class="rail-bottom"><strong>${esc(property.name)}</strong>${esc(property.place)}<br>Shared front desk \xB7 demo environment<br>Role in token: ${esc(roleLabel)}</div></aside><div class="desk-main"><header class="topline"><div class="property"><i class="property-mark" aria-hidden="true"></i><strong>${esc(property.name)}</strong><span>\xB7 ${esc(property.place)}</span></div><div class="top-actions"><span class="demo-pill">${propertyDemo ? "SCRIPTED ACCESS PREVIEW" : "DEMO DATA"} \xB7 NOT CONNECTED TO PMS</span>${entraIdentity ? '<span class="identity-pill">ENTRA SESSION</span><button class="top-signout" type="button" data-action="sign-out">Sign out</button>' : '<a class="top-signin" href="https://kind-beach-0ba2dc30f.6.azurestaticapps.net/desk-auth.html" target="_blank" rel="noopener noreferrer">Sign in with Entra \u2197</a>'}<div class="operator">${operatorImage()}<span><strong>${esc(operator)}</strong><small>${entraIdentity ? esc(entraIdentity.username) : "Front desk shift"}</small></span></div></div></header><main class="main-inner" id="desk-main">`;
 }
 function propertyJourney() {
   if (!propertyDemo) return "";
@@ -86,11 +122,15 @@ function lockScreen() {
   return `<div class="lock"><div class="lock-card"><img src="./assets/harborline-mark.svg" alt="Harborline"><div class="eyebrow">Shared front desk \xB7 demo</div><h1>Shift ended. Desk cleared.</h1><p>The previous demo operator\u2019s guest screen and work state have been removed.</p>${entraIdentity ? `<p>Signed in as <strong>${esc(operator)}</strong>. Sign out before the next person uses this browser.</p><button type="button" class="btn primary" data-action="sign-out">Sign out of Entra</button>` : `<label class="field" for="next-operator">Next operator<select id="next-operator"><option value="Avery Lee">Avery Lee \xB7 front desk</option><option value="Sam Okoro">Sam Okoro \xB7 night audit</option></select></label><button type="button" class="btn primary" data-action="new-shift">Start fresh demo shift</button>`}<div class="fineprint">Sample guest work is local to this page. End shift does not prove Windows kiosk cleanup or invalidate another application session.</div></div></div>`;
 }
 function render() {
+  if (workspace === "contactcenter") {
+    app.innerHTML = `<div class="desk-shell">${ccHeader()}${ccBody()}</main></div></div>`;
+    return;
+  }
   app.innerHTML = locked ? lockScreen() : `<div class="desk-shell">${header()}${propertyJourney()}${propertyAllowed() ? view === "overview" ? overview() : view === "arrivals" ? arrivals() : view === "rooms" ? rooms() : service() : denied()}</main></div></div>${propertyAllowed() ? detail() : ""}`;
 }
-var app, icons, ico, esc, seed, entraIdentity, persona, propertyDemo, properties, phase, selectedProperty, data, view, drawer, search, operator, locked, toastTimer, allowedProperty, propertyAllowed, currentProperty, mark, now, operatorImage, count, roomCount;
+var app, icons, ico, esc, seed, entraIdentity, persona, propertyDemo, properties, phase, selectedProperty, data, view, drawer, search, operator, locked, toastTimer, allowedProperty, propertyAllowed, roles, wsParam, workspace, roleLabel, wsTitle, ccSeed, cc, ccView, ccSearch, currentProperty, mark, now, operatorImage, count, roomCount;
 var init_desk = __esm({
-  "dist/desk.js?v=20260922-property1"() {
+  "dist/desk.js?v=20260923-cc1"() {
     app = document.querySelector("#desk-app");
     if (new URLSearchParams(location.search).has("stage")) document.body.classList.add("stage-mode");
     icons = { overview: '<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>', arrivals: '<path d="M3 21h18M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16M9 7h.01M15 7h.01M9 11h.01M15 11h.01M10 21v-5h4v5"/>', rooms: '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 11h18M8 11v9M16 11v9"/>', service: '<path d="M5 8h14M5 12h14M5 16h9M3 4h18v16H3z"/>' };
@@ -129,6 +169,99 @@ var init_desk = __esm({
     locked = false;
     allowedProperty = () => persona === "samfed" ? "franchise" : phase === "managed" ? "managed" : "franchise";
     propertyAllowed = () => !propertyDemo || selectedProperty === allowedProperty();
+    roles = entraIdentity && entraIdentity.roles || [];
+    wsParam = new URLSearchParams(location.search).get("workspace");
+    workspace = wsParam || (roles.includes("Desk.ContactCenter") ? "contactcenter" : roles.includes("Desk.Housekeeping") ? "housekeeping" : "frontdesk");
+    roleLabel = roles.length ? roles.join(", ") : workspace === "contactcenter" ? "Desk.ContactCenter \xB7 preview" : workspace === "housekeeping" ? "Desk.Housekeeping \xB7 preview" : "Desk.FrontOffice \xB7 preview";
+    wsTitle = { contactcenter: "CONTACT CENTER", housekeeping: "HOUSEKEEPING", frontdesk: "FRONT DESK" }[workspace];
+    ccSeed = () => ({
+      queue: [
+        { id: "C-1041", caller: "Helen Ward", hotel: "Elliott Landing, Seattle", reason: "Move arrival to Friday", wait: "0:42", status: "Waiting" },
+        { id: "C-1042", caller: "Marcus Lee", hotel: "Cannery Pier, Portland", reason: "Add a second room", wait: "1:15", status: "Waiting" },
+        { id: "C-1043", caller: "Sofia Ruiz", hotel: "Biscayne Slip, Miami", reason: "Confirm airport shuttle", wait: "2:03", status: "Waiting" },
+        { id: "C-1039", caller: "Grace Park", hotel: "Long Wharf Commons, Boston", reason: "Invoice copy", wait: "On call", status: "On call" }
+      ],
+      reservations: [
+        { id: "HBL-51022", name: "Helen Ward", hotel: "Elliott Landing, Seattle", dates: "Oct 3 to 5", type: "King", status: "Confirmed" },
+        { id: "HBL-51031", name: "Marcus Lee", hotel: "Cannery Pier, Portland", dates: "Oct 9 to 12", type: "Two queens", status: "Confirmed" },
+        { id: "HBL-51044", name: "Sofia Ruiz", hotel: "Biscayne Slip, Miami", dates: "Oct 14 to 18", type: "Suite", status: "Confirmed" },
+        { id: "HBL-50990", name: "Grace Park", hotel: "Long Wharf Commons, Boston", dates: "Sep 18 to 20", type: "King", status: "Departed" },
+        { id: "HBL-51050", name: "Daniel Brooks", hotel: "Ballard Locks House, Seattle", dates: "Oct 2 to 3", type: "King", status: "Hold" }
+      ],
+      callbacks: [{ id: 1, name: "Ava Morgan", hotel: "Embarcadero Quay, San Francisco", note: "Call back about late checkout on Oct 6", status: "Open" }, { id: 2, name: "Oliver Grant", hotel: "Elliott Landing, Seattle", note: "Send folio copy for expenses", status: "Open" }],
+      activity: [{ title: "Remote shift opened", detail: "Working from home over the internet \xB7 all data is local to this page" }]
+    });
+    cc = ccSeed();
+    ccView = "overview";
+    ccSearch = "";
+    app.addEventListener("click", (event) => {
+      if (workspace !== "contactcenter") return;
+      const b = event.target.closest("button");
+      if (!b) return;
+      if (b.dataset.ccview) {
+        ccView = b.dataset.ccview;
+        render();
+        return;
+      }
+      if (b.dataset.take) {
+        const c = cc.queue.find((x) => x.id === b.dataset.take);
+        if (c) {
+          c.status = "On call";
+          c.wait = "On call";
+          ccRecord("Call taken", `${c.caller} \xB7 ${c.hotel}`);
+          render();
+        }
+        return;
+      }
+      if (b.dataset.wrap) {
+        const c = cc.queue.find((x) => x.id === b.dataset.wrap);
+        if (c) {
+          c.status = "Done";
+          ccRecord("Call wrapped up", `${c.caller} \xB7 ${c.reason}`);
+          render();
+          notify("Call closed in demo");
+        }
+        return;
+      }
+      if (b.dataset.confirm) {
+        const r = cc.reservations.find((x) => x.id === b.dataset.confirm);
+        if (r) {
+          r.status = "Confirmed";
+          ccRecord("Reservation confirmed", `${r.id} \xB7 ${r.hotel}`);
+          render();
+          notify("Reservation confirmed in demo");
+        }
+        return;
+      }
+      if (b.dataset.callback) {
+        const t = cc.callbacks.find((x) => x.id === Number(b.dataset.callback));
+        if (t) {
+          t.status = "Done";
+          ccRecord("Callback completed", `${t.name} \xB7 ${t.hotel}`);
+          render();
+          notify("Callback closed");
+        }
+        return;
+      }
+      if (b.dataset.action === "sign-out") {
+        window.dispatchEvent(new CustomEvent("desk-signout"));
+      }
+    }, true);
+    app.addEventListener("input", (event) => {
+      if (workspace === "contactcenter" && event.target.id === "cc-search") {
+        const caret = event.target.selectionStart;
+        ccSearch = event.target.value;
+        const list = document.querySelector("#cc-list");
+        if (list) {
+          render();
+          const el = document.querySelector("#cc-search");
+          if (el) {
+            el.focus();
+            el.setSelectionRange(caret, caret);
+          }
+        }
+      }
+    }, true);
     currentProperty = () => propertyDemo ? properties[selectedProperty] : { name: "Ballard Locks House", place: "Seattle, WA" };
     mark = (status) => status.toLowerCase().replace(/\s+/g, "-");
     now = () => new Intl.DateTimeFormat("en-US", { hour: "numeric", minute: "2-digit" }).format(/* @__PURE__ */ new Date());
@@ -136,6 +269,7 @@ var init_desk = __esm({
     count = (status) => data.guests.filter((x) => x.status === status).length;
     roomCount = (status) => data.rooms.filter((x) => x.status === status).length;
     app.addEventListener("click", (event) => {
+      if (workspace === "contactcenter") return;
       const button = event.target.closest("button");
       if (!button) return;
       if (button.dataset.phase) {
@@ -15188,7 +15322,7 @@ async function start() {
       return;
     }
     msal.setActiveAccount(account);
-    window.__deskIdentity = { name: account.name || account.username || "Front desk team member", username: account.username || "", tenantId: account.tenantId || "" };
+    window.__deskIdentity = { name: account.name || account.username || "Front desk team member", username: account.username || "", tenantId: account.tenantId || "", roles: token?.idTokenClaims?.roles || account.idTokenClaims?.roles || [] };
     window.addEventListener("desk-signout", () => msal.logoutRedirect({ account, postLogoutRedirectUri: new URL("./desk-auth.html", location.href).href }));
     await Promise.resolve().then(() => (init_desk(), desk_exports));
   } catch (error) {

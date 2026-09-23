@@ -43,9 +43,9 @@ async function start(){
     const token=result?.idToken?result:await msal.acquireTokenSilent({scopes:['openid','profile'],account});
     if(!token?.idToken){gate('The previous session could not be confirmed. Sign in again.');return;}
     msal.setActiveAccount(account);
-    window.__deskIdentity={name:account.name||account.username||'Front desk team member',username:account.username||'',tenantId:account.tenantId||''};
+    window.__deskIdentity={name:account.name||account.username||'Front desk team member',username:account.username||'',tenantId:account.tenantId||'',roles:(token?.idTokenClaims?.roles)||(account.idTokenClaims?.roles)||[]};
     window.addEventListener('desk-signout',()=>msal.logoutRedirect({account,postLogoutRedirectUri:new URL('./desk-auth.html',location.href).href}));
-    await import('../dist/desk.js?v=20260922-property1');
+    await import('../dist/desk.js?v=20260923-cc1');
   }catch(error){
     console.error('Front Desk authentication failed',error);
     gate('The application did not receive a usable Entra session.','Sign-in was not completed. Check that this account is assigned to Harborline Desk, then try again in a new browser tab.');
