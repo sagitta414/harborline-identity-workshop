@@ -14736,13 +14736,13 @@ var BaseOperatingContext = class _BaseOperatingContext {
     this.browserEnvironment = typeof window !== "undefined";
     this.config = buildConfiguration(config, this.browserEnvironment);
     this.responseHandlers = responseHandlers;
-    let sessionStorage;
+    let sessionStorage2;
     try {
-      sessionStorage = window[BrowserCacheLocation.SessionStorage];
+      sessionStorage2 = window[BrowserCacheLocation.SessionStorage];
     } catch (e) {
     }
-    const logLevelKey = sessionStorage?.getItem(LOG_LEVEL_CACHE_KEY);
-    const piiLoggingKey = sessionStorage?.getItem(LOG_PII_CACHE_KEY)?.toLowerCase();
+    const logLevelKey = sessionStorage2?.getItem(LOG_LEVEL_CACHE_KEY);
+    const piiLoggingKey = sessionStorage2?.getItem(LOG_PII_CACHE_KEY)?.toLowerCase();
     const piiLoggingEnabled = piiLoggingKey === "true" ? true : piiLoggingKey === "false" ? false : void 0;
     const loggerOptions = { ...this.config.system.loggerOptions };
     const logLevel = logLevelKey && Object.keys(LogLevel).includes(logLevelKey) ? LogLevel[logLevelKey] : void 0;
@@ -15123,8 +15123,26 @@ var JsonWebTokenTypes2 = Constants_exports.JsonWebTokenTypes;
 var OIDC_DEFAULT_SCOPES2 = Constants_exports.OIDC_DEFAULT_SCOPES;
 
 // src/desk-auth.js
-var clientId = "414705c7-3636-4d30-85a8-96dd0250f978";
-var tenantId = "46e49e46-3372-4491-a6e3-3988ca835f8d";
+var TENANTS = {
+  gmail: { clientId: "414705c7-3636-4d30-85a8-96dd0250f978", tenantId: "46e49e46-3372-4491-a6e3-3988ca835f8d" },
+  workforce: { clientId: "ed29ab03-ef65-4981-9238-1271b1d3c032", tenantId: "c842fc0a-c0b0-43d3-9366-6f2ce87d6e6f" }
+};
+var tenantKey = (() => {
+  const q = new URLSearchParams(location.search).get("tenant");
+  if (q && TENANTS[q]) {
+    try {
+      sessionStorage.setItem("desk-tenant", q);
+    } catch {
+    }
+    return q;
+  }
+  try {
+    return sessionStorage.getItem("desk-tenant") || "gmail";
+  } catch {
+    return "gmail";
+  }
+})();
+var { clientId, tenantId } = TENANTS[tenantKey];
 var liveEntry = "https://kind-beach-0ba2dc30f.6.azurestaticapps.net/desk-auth.html";
 var canSignIn = location.origin === new URL(liveEntry).origin || ["localhost", "127.0.0.1"].includes(location.hostname);
 var redirectUri = new URL("./desk-redirect.html", location.href).href;
