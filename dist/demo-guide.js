@@ -159,6 +159,33 @@ const guides={
    s('Inspect the prepared scenario’s claim of post-termination activity against sign-in and application logs. Check identity, event time, result and application.','A scenario claim becomes a finding only when records support it.','If the event cannot be found or is outside retention, state that limit rather than implying it occurred.'),
    s('Return to Tom’s evidence and compare the two outcomes. Ask who owns source data, workflow failures and downstream exceptions in the client’s environment.','The workshop should end with an operational owner and acceptance criteria.','Agree how the client will prove the account, sessions and entitlements are closed, and who handles anything still open.')
   ]]
+ ],
+ aiko:[
+  [[33],[
+   s('Open Agent Studio as aiko.tanaka@arrow-creations.us, use Fill in the Concierge example and click Register the agent.','The agent becomes a principal of its own, with Aiko as owner, disabled until approved.','Read the evidence panel: application id, service principal created, owner set, scopes requested.'),
+   s('In the Entra admin center open Enterprise applications and find Agent: Front Desk Concierge (Aiko Tanaka).','The studio created a real object the tenant can govern.','Disabled, owner Aiko, no permissions yet.'),
+   s('Ask the room who owns the agents already running in their estate.','Ownership is the first control, before scope.','Most rooms cannot answer for every agent.')
+  ]],
+  [[33],[
+   s('Open Agent Studio as chris.park@arrow-creations.us. In Approvals untick Send messages and click Approve with ticked scopes.','Requested is not granted; Security trims to the purpose.','Evidence panel: scopes granted, Messaging.Send refused, credential issued to the platform, principal enabled.'),
+   s('Open the agent’s Permissions blade in Enterprise applications.','Application role assignments are the consent.','Four application permissions on the Harborline Agent Gateway; no Messaging.Send.'),
+   s('Ask who in the client’s organisation approves what an agent may reach.','Scope approval needs a named owner.','If the answer is the builder, the control is missing.')
+  ]],
+  [[33],[
+   s('Back as Aiko, run: Can room 412 check out late tomorrow?','The agent signs in with client credentials and gets a token with exactly the granted roles.','First transcript line: signed in as itself, roles listed, audience api://harborline-agent-gateway.'),
+   s('Open Activity and sign-ins (about 40 seconds to read).','Every agent sign-in is a service principal sign-in in the tenant log.','Entries for Harborline Agent Gateway with the agent as the principal.'),
+   s('Open Sign-in logs in the admin center and filter to service principal sign-ins.','The same evidence, in Microsoft’s own log.','The agent and the platform agents appear as principals.')
+  ]],
+  [[33,34],[
+   s('Read the Housekeeping and Revenue hops in the transcript.','Each platform agent answers with its own identity and roles; the gateway checked the caller’s scopes and allow-list first.','Their application ids and roles are shown under each hop.'),
+   s('Point at the refused message step, then run the payroll question.','A refusal at the gateway is the demonstration: HTTP 403 with the missing scope or the allow-list named.','The agent answers honestly that it cannot help with pay.'),
+   s('Open Conditional Access and explain workload identity policies.','Guardrails for agents use the same policy engine as people.','Optional: a policy that blocks the agent signing in from outside Azure.')
+  ]],
+  [[34],[
+   s('Click Retire on the agent.','Retirement is the leaver pattern for software.','Evidence panel: principal disabled, roles removed.'),
+   s('Open the enterprise application again.','The object stays; it can do nothing.','Disabled, no permissions, sign-in history intact.'),
+   s('Open Access reviews and show a review of application role assignments.','Agents are reviewed like people.','Same review engine, same evidence.')
+  ]]
  ]
 };
 
@@ -203,6 +230,13 @@ const highlights = {
   ['Verify the departure and account state','Compare Kwame’s outcome with Tom’s','Test the fresh sign-in boundary'],
   ['Inspect offboarding task results','Check remaining application access','Verify revocation and session behavior'],
   ['Build the timestamped evidence trail','Validate claims against actual records','Agree owners and completion criteria']
+ ],
+ aiko: [
+  ['Build the agent as Aiko','Read the evidence: identity, owner, scopes requested','Find it in Enterprise applications'],
+  ['Approve as Chris with one scope refused','Read the granted roles on the principal','Explain who approves scope in your estate'],
+  ['Run the late checkout','Read the token line and the answer','Open Activity: the agent’s own sign-ins'],
+  ['Read the agent-to-agent hops','Point at the refused message step','Run the payroll question and read the refusal'],
+  ['Retire the agent','Confirm the principal is disabled and roleless','Show access reviews for application roles']
  ]
 };
 

@@ -43,6 +43,13 @@ export const userMoments = {
     ['Observe the departure boundary.', 'In an authorized lab test, use a fresh persona session to attempt sign-in.', 'Show the actual denial or access result and compare it with the current account state.'],
     ['Verify the application boundary too.', 'Distinguish a new sign-in from an existing application session.', 'Demonstrate the actual prepared application behavior and correlate it with revocation evidence in Admin view.'],
     ['Close with what the person can actually do.', 'Summarize the observed sign-in and application results.', 'Use Admin view to tie each result to its timestamp and evidence; leave untested outcomes clearly identified.']
+  ],
+  aiko: [
+    ['Build the Concierge agent.', 'In Agent Studio as Aiko, use Fill in the Concierge example and register it.', 'Read the evidence panel: the agent is an application and a service principal with you as owner, disabled until approved.'],
+    ['Wait for Security.', 'The approval request went to Chris by email; the principal stays disabled.', 'When it is approved, the agent card shows the granted scopes and any refused ones.'],
+    ['Run a guest request.', 'Ask: Can room 412 check out late tomorrow?', 'Watch the agent sign in as itself, ask Housekeeping and Revenue, and get refused on the message step.'],
+    ['Try something it should not do.', 'Ask the overtime pay question.', 'The gateway refuses the Payroll hop with the reason; the agent says it cannot help.'],
+    ['Retire it.', 'Click Retire when the agent is no longer needed.', 'The principal is disabled and its roles removed; the sign-in history stays.']
   ]
 };
 export const userLinks = [['My Apps','myapps'],['My Access','access'],['Security info','security'],['My sign-ins','signin']];

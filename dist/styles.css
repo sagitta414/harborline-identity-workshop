@@ -28,3 +28,11 @@
 .readiness-manual{margin-top:24px}.readiness-manual .steps{margin-bottom:0}.readiness-actions{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:18px}.readiness-actions .launch,.readiness-actions .outline{margin:0;min-height:60px;text-align:left}.readiness-actions .outline{justify-content:space-between}
 .primary-external-journey{position:relative;box-shadow:0 0 0 1px rgba(88,214,255,.72),0 20px 56px rgba(11,106,164,.22)}.primary-journey-badge{display:inline-flex;margin:10px 0 2px;padding:6px 10px;border:1px solid rgba(88,214,255,.55);border-radius:999px;background:rgba(88,214,255,.12);color:#9eeaff;font:700 10px/1.1 Inter,system-ui,sans-serif;letter-spacing:.12em}
 @media(max-width:700px){.readiness-hero{align-items:flex-start;flex-direction:column}.readiness-grid,.readiness-actions{grid-template-columns:1fr}.readiness-row{grid-template-columns:12px 1fr}.readiness-row b{grid-column:2}.presentation:is(.tab-architecture,.tab-live,.tab-ai) .story-top h1{font-size:28px}}
+
+/* live console for a story (v1.5.0) */
+.console-card{margin-top:22px;border:1px solid var(--line,#cfdce7);border-left:4px solid #d9451f;border-radius:14px;padding:18px 20px;background:#fff}
+.console-card p{max-width:72ch}
+.console-card .console-who{font-size:14px;color:#4b5c6d}
+.console-card .console-who code{font-size:13px}
+.console-card .launch-list{margin-top:10px}
+@media (prefers-color-scheme:dark){.console-card{background:#141f2b;border-color:#22303d}.console-card .console-who{color:#9fb0c0}}

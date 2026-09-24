@@ -1,8 +1,14 @@
 import {createStandardPublicClientApplication} from '@azure/msal-browser';
 
 // Public identifiers only. The application has no client secret or tenant write permission.
-const clientId='414705c7-3636-4d30-85a8-96dd0250f978';
-const tenantId='46e49e46-3372-4491-a6e3-3988ca835f8d';
+// Two directories can open the Front Desk. ?tenant=workforce uses the Harborline workforce tenant (07rr4) and its
+// "Harborline Desk (OIDC)" registration, which is what an Autopilot-joined laptop signs in to with single sign-on.
+const TENANTS={
+  gmail:{clientId:'414705c7-3636-4d30-85a8-96dd0250f978',tenantId:'46e49e46-3372-4491-a6e3-3988ca835f8d'},
+  workforce:{clientId:'ed29ab03-ef65-4981-9238-1271b1d3c032',tenantId:'c842fc0a-c0b0-43d3-9366-6f2ce87d6e6f'}
+};
+const tenantKey=(()=>{const q=new URLSearchParams(location.search).get('tenant');if(q&&TENANTS[q]){try{sessionStorage.setItem('desk-tenant',q);}catch{}return q;}try{return sessionStorage.getItem('desk-tenant')||'gmail';}catch{return 'gmail';}})();
+const {clientId,tenantId}=TENANTS[tenantKey];
 const liveEntry='https://kind-beach-0ba2dc30f.6.azurestaticapps.net/desk-auth.html';
 const canSignIn=location.origin===new URL(liveEntry).origin||['localhost','127.0.0.1'].includes(location.hostname);
 const redirectUri=new URL('./desk-redirect.html',location.href).href;
@@ -37,9 +43,9 @@ async function start(){
     const token=result?.idToken?result:await msal.acquireTokenSilent({scopes:['openid','profile'],account});
     if(!token?.idToken){gate('The previous session could not be confirmed. Sign in again.');return;}
     msal.setActiveAccount(account);
-    window.__deskIdentity={name:account.name||account.username||'Front desk team member',username:account.username||'',tenantId:account.tenantId||''};
+    window.__deskIdentity={name:account.name||account.username||'Front desk team member',username:account.username||'',tenantId:account.tenantId||'',roles:(token?.idTokenClaims?.roles)||(account.idTokenClaims?.roles)||[]};
     window.addEventListener('desk-signout',()=>msal.logoutRedirect({account,postLogoutRedirectUri:new URL('./desk-auth.html',location.href).href}));
-    await import('../dist/desk.js?v=20260922-property1');
+    await import('../dist/desk.js?v=20260923-cc1');
   }catch(error){
     console.error('Front Desk authentication failed',error);
     gate('The application did not receive a usable Entra session.','Sign-in was not completed. Check that this account is assigned to Harborline Desk, then try again in a new browser tab.');
