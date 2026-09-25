@@ -1,0 +1,35 @@
+1
+00:00:00,500 --> 00:00:04,000
+Jordan’s transfer is about more than changing a user record.
+
+2
+00:00:04,300 --> 00:00:08,300
+Before the move, his application context is the franchise property.
+
+3
+00:00:08,600 --> 00:00:14,000
+A read-only Graph call shows his current workforce account, Harbor View membership and Harborline app assignments.
+
+4
+00:00:14,300 --> 00:00:18,700
+The managed-property context opens, and the available work changes with it.
+
+5
+00:00:19,000 --> 00:00:24,400
+We test the old property next. Bayside is refused, so its roster and rooms stay out of reach.
+
+6
+00:00:24,700 --> 00:00:29,000
+Back at Harbor View, Jordan can open the arrival list.
+
+7
+00:00:29,300 --> 00:00:33,500
+He opens Maya’s reservation and sees only matching ready rooms.
+
+8
+00:00:33,800 --> 00:00:37,200
+Room six oh eight is selected before the app commits the task.
+
+9
+00:00:37,500 --> 00:00:43,500
+The final screen is the business proof. Maya is in house, and the assignment is visible.
