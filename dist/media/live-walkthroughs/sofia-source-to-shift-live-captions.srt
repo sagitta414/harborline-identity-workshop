@@ -1,0 +1,43 @@
+1
+00:00:00,500 --> 00:00:04,000
+Here’s Sofia’s first shift, without the virtual machine.
+
+2
+00:00:04,400 --> 00:00:08,200
+Harborline HR owns the hire, property and manager details that Entra reacts to.
+
+3
+00:00:08,600 --> 00:00:12,200
+The Front Desk asks for a workforce session and hands the browser to Microsoft.
+
+4
+00:00:12,700 --> 00:00:19,000
+Sofia enters her demo username. Her password stays masked, and no real credential is stored in this recording.
+
+5
+00:00:19,300 --> 00:00:24,600
+A read-only Graph call confirms her enabled account, property groups, passkey cohort and Front Desk assignment.
+
+6
+00:00:25,000 --> 00:00:29,800
+She comes back to the app under her own name, with the right property ready.
+
+7
+00:00:30,100 --> 00:00:34,000
+Now the identity story becomes real work. Sofia opens the arrival list.
+
+8
+00:00:34,300 --> 00:00:38,600
+She opens Maya’s reservation and picks a ready room.
+
+9
+00:00:38,900 --> 00:00:42,500
+Room seven fourteen is selected, then the check-in is committed.
+
+10
+00:00:42,800 --> 00:00:47,400
+The guest status changes immediately. Maya is now in house.
+
+11
+00:00:47,700 --> 00:00:52,400
+At the end of the shift, the shared desk is cleared for the next colleague.
