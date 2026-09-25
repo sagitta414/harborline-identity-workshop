@@ -1,0 +1,19 @@
+1
+00:00:00,500 --> 00:00:06,800
+On the franchise kiosk, Sam signs in with an identity owned by the franchise instead of a Harborline password.
+
+2
+00:00:07,000 --> 00:00:14,400
+Entra recognizes the federated domain and redirects the browser to HarborPass for authentication.
+
+3
+00:00:14,600 --> 00:00:23,000
+HarborPass verifies Sam and multifactor, then returns a signed assertion so Entra can issue the application token.
+
+4
+00:00:23,200 --> 00:00:31,700
+The browser lands in the same Front Desk experience, with Harborline’s device and application rules still applied.
+
+5
+00:00:31,900 --> 00:00:39,500
+This separates responsibility cleanly: the franchise manages the credential, while Harborline controls access to its application.

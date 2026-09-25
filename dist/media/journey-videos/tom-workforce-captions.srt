@@ -1,0 +1,19 @@
+1
+00:00:00,500 --> 00:00:06,800
+Tom’s contract ended, but his workforce guest account is still enabled. That is the risk we want the room to see.
+
+2
+00:00:07,000 --> 00:00:14,400
+The Vendor Access Review brings the end date, last sign-in and remaining access into one decision point.
+
+3
+00:00:14,600 --> 00:00:23,000
+Entra governance can consume the date, start a review and prepare the exact removal instead of relying on somebody to remember.
+
+4
+00:00:23,200 --> 00:00:31,700
+After the approved cleanup, the protected application should refuse a fresh attempt. That denial is the business result.
+
+5
+00:00:31,900 --> 00:00:39,500
+Keep Tom’s workforce guest separate from his External ID supplier account. They are two identities with two lifecycles.

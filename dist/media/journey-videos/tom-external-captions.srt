@@ -1,0 +1,19 @@
+1
+00:00:00,500 --> 00:00:06,800
+This is Tom’s separate supplier identity, used for ClimateWorks work in the customer-facing Supplier Desk.
+
+2
+00:00:07,000 --> 00:00:14,400
+External ID authenticates Tom and returns him to the branded portal under his own business account.
+
+3
+00:00:14,600 --> 00:00:23,000
+The application maps his stable subject to ClimateWorks and the properties and work orders that company is allowed to serve.
+
+4
+00:00:23,200 --> 00:00:31,700
+Tom can open an assigned delivery, but a request for another supplier’s resource is denied by the API.
+
+5
+00:00:31,900 --> 00:00:39,500
+That contrast matters: successful sign-in proves who Tom is. The supplier mapping and API decision prove what he may do.

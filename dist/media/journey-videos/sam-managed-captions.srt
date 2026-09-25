@@ -1,0 +1,19 @@
+1
+00:00:00,500 --> 00:00:06,800
+Sam is starting the night audit on a front desk computer shared across shifts.
+
+2
+00:00:07,000 --> 00:00:14,400
+He uses a passkey, so the sign-in resists phishing without adding another password for the desk to manage.
+
+3
+00:00:14,600 --> 00:00:23,000
+Entra evaluates Sam, the shared device and the Front Desk assignment before the application opens.
+
+4
+00:00:23,200 --> 00:00:31,700
+The Shift Board returns under Sam’s name, with the tools his role needs and nothing from the previous colleague.
+
+5
+00:00:31,900 --> 00:00:39,500
+The proof is the handover: end the shift, revoke the session and leave a clean starting point for the next person.
