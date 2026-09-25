@@ -27,7 +27,7 @@ const persona=new URLSearchParams(location.search).get('persona');
 const propertyDemo=persona==='jordan'||persona==='samfed';
 const properties={franchise:{name:'Bayside House',place:'Bayside · franchise'},managed:{name:'Harbor View',place:'Seattle · managed hotel'}};
 let phase='franchise',selectedProperty='franchise';
-let data=seed(),view='overview',drawer=null,search='',operator=entraIdentity?.name||(persona==='jordan'?'Jordan Vale':new URLSearchParams(location.search).get('workspace')==='contactcenter'?'Nadia Haddad':'Sam Okoro'),locked=false,toastTimer;
+let data=seed(),view='overview',drawer=null,search='',operator=entraIdentity?.name||(persona==='jordan'?'Jordan Vale':persona==='sofia'?'Sofia Alvarez':new URLSearchParams(location.search).get('workspace')==='contactcenter'?'Nadia Haddad':'Sam Okoro'),locked=false,toastTimer;
 const allowedProperty=()=>persona==='samfed'?'franchise':phase==='managed'?'managed':'franchise';
 const propertyAllowed=()=>!propertyDemo||selectedProperty===allowedProperty();
 // The workspace is decided by the app role in the token (use case 33): Desk.ContactCenter, Desk.Housekeeping or Desk.FrontOffice.
