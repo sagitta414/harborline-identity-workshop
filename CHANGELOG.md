@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.5.1 (2026-09-24)
+
+- Rules, not people: a live two-demo board (https://harborlinecc7795.z1.web.core.windows.net/rules.html) linked from the Sofia, Elena and Jordan console panels and the URL map. Demo 1 counts External ID accounts before and after a self-service sign-up; Demo 2 moves Diego Ramos into the HL-Dept-Finance dynamic group (rule user.department -eq "Finance") from Harborline HR and shows the group, the Entra Suite licence and the Sabre CRS app follow, with the audit rows that prove no admin touched him.
+
 ## 1.5.0 (2026-09-23)
 
 - Story 9, Aiko Tanaka: an agent with an identity. Aiko builds a concierge agent in Agent Studio; it becomes a real application and service principal with her as owner, Security approves its scopes as application roles on the Harborline Agent Gateway (one refused), it signs in with its own token, asks the Housekeeping and Revenue agents (each answering with its own identity), is refused at the gateway when it steps outside its scopes, and is retired like a leaver. Five moments, use cases 33 and 34, admin and user guides, AI pattern, company playbook and narrative.
