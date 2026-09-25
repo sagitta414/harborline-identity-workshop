@@ -1,0 +1,19 @@
+1
+00:00:00,500 --> 00:00:06,800
+Evan joins Harborline’s partner ecosystem as a person from Tidewater Channel Systems.
+
+2
+00:00:07,000 --> 00:00:14,400
+External ID signs Evan into the Integration Exchange and connects him to a verified partner relationship.
+
+3
+00:00:14,600 --> 00:00:23,000
+Evan registers an integration. Harborline then issues a separate application identity with explicit client credential scope.
+
+4
+00:00:23,200 --> 00:00:31,700
+The machine token can read the approved sandbox API, while an ungranted production action is denied at the API boundary.
+
+5
+00:00:31,900 --> 00:00:39,500
+Show both subjects: Evan sponsors the integration, but the API call runs as the application. That handoff is the proof.

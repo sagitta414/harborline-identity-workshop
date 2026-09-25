@@ -1,0 +1,19 @@
+1
+00:00:00,500 --> 00:00:06,800
+Kwame’s last day is recorded in HR. That source event should start the departure without an email to IT.
+
+2
+00:00:07,000 --> 00:00:14,400
+The Offboarding Folio puts his account state, sessions, groups, applications and workflow history in one view.
+
+3
+00:00:14,600 --> 00:00:23,000
+Entra disables the identity, revokes active sessions and removes the assignments the leaver process owns.
+
+4
+00:00:23,200 --> 00:00:31,700
+A fresh application attempt is refused, while the audit history remains available for Security and the business owner.
+
+5
+00:00:31,900 --> 00:00:39,500
+The lesson is simple: a disabled account is one signal. Complete offboarding needs evidence for every key that was removed.

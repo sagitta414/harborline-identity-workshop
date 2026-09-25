@@ -1,0 +1,19 @@
+1
+00:00:00,500 --> 00:00:06,800
+Aiko is building a concierge agent, and the agent needs an identity of its own before it can touch Harborline data.
+
+2
+00:00:07,000 --> 00:00:14,400
+Agent Studio registers the application and service principal, with Aiko recorded as the human owner.
+
+3
+00:00:14,600 --> 00:00:23,000
+Security grants only the application roles the concierge needs. Requested permission is never the same as approved permission.
+
+4
+00:00:23,200 --> 00:00:31,700
+The agent signs in as itself, calls the approved hotel services and receives a clear refusal when it asks for payroll or messaging.
+
+5
+00:00:31,900 --> 00:00:39,500
+That gives the room a complete workload identity story: owner, token, scope, refusal, sign-in record and a retirement path.

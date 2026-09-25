@@ -1,0 +1,19 @@
+1
+00:00:00,500 --> 00:00:06,800
+Nadia works remotely, so her first sign-in and every access decision must work without an office visit.
+
+2
+00:00:07,000 --> 00:00:14,400
+Her Contractor Pass shows the sponsor, engagement date and the access package tied to the work.
+
+3
+00:00:14,600 --> 00:00:23,000
+An approved external authentication method can satisfy multifactor, while the time-bound package controls what she receives.
+
+4
+00:00:23,200 --> 00:00:31,700
+Nadia can do the contracted work today, and an extension request goes to the sponsor instead of silently changing the boundary.
+
+5
+00:00:31,900 --> 00:00:39,500
+At the end date, access expires. The evidence should connect the contract, the package and the next denied attempt.

@@ -1,0 +1,19 @@
+1
+00:00:00,500 --> 00:00:06,800
+Elena manages a Bayside franchise, so she needs Harborline’s business application without becoming a Harborline employee.
+
+2
+00:00:07,000 --> 00:00:14,400
+She starts at the branded Franchise Hub and signs up with her own business email through External ID.
+
+3
+00:00:14,600 --> 00:00:23,000
+A trusted franchise record and location-scoped role decide what the application returns after authentication.
+
+4
+00:00:23,200 --> 00:00:31,700
+Elena can open the Bayside scorecard and standards, while another owner’s hotel and royalty data remain blocked.
+
+5
+00:00:31,900 --> 00:00:39,500
+The important point is the boundary: External ID establishes the person, and the application enforces company, role and location.
