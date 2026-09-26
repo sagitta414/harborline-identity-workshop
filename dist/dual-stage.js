@@ -1,5 +1,5 @@
 import {focusRemoteWindow,watchRemoteFocus} from './desktop-focus.js';
-import {AGENTS} from './data.js?v=20260926-story3';
+import {AGENTS} from './data.js?v=20260926-story4';
 
 // Three protected surfaces. Layout changes hide panes without recreating a connected frame.
 export function installDualStage(root,config,validateGateway,onUserFocus,onAdminFocus){
