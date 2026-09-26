@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.6.0 (2026-09-26)
+
+- Two new external identity journeys are now reachable from the site. **Contracted operators** (https://harborlinecc7795.z1.web.core.windows.net/operators.html) answers the question a hotel usually cannot: who from an outside company holds access to our systems right now, who has not signed in for a month, and whose roster nobody has confirmed. It opens on a real finding, a valet contract that ended ten days ago whose people still hold access, and closing that contract removes the whole company in one action. The operator's own supervisor keeps the roster on https://harborlinecc7795.z1.web.core.windows.net/operator-team.html, one person at a time or by pasting a whole roster when a contract starts.
+- **Event Desk** (https://harborlinecc7795.z1.web.core.windows.net/events.html) is the lighter version of the same pattern: a planner, a crew and the client's coordinator on one event, at one property, for three days, with access dated to the event rather than to the person.
+- The partner identity providers now have a shareable page (providers.html) showing all four sign-in experiences with what each represents, and there is a printable leave-behind (brief.html).
+- URL map extended with the operator consoles, the Event Desk, the provider gallery and the leave-behind; the vendor, franchise, offboarding and contractor journeys link to the ones that belong beside them.
+
 ## 1.5.1 (2026-09-24)
 
 - Rules, not people: a live two-demo board (https://harborlinecc7795.z1.web.core.windows.net/rules.html) linked from the Sofia, Elena and Jordan console panels and the URL map. Demo 1 counts External ID accounts before and after a self-service sign-up; Demo 2 moves Diego Ramos into the HL-Dept-Finance dynamic group (rule user.department -eq "Finance") from Harborline HR and shows the group, the Entra Suite licence and the Sabre CRS app follow, with the audit rows that prove no admin touched him.
