@@ -1,6 +1,6 @@
 import {companyStories} from './company-playbooks.js';
-import {cases} from './workshop.js';
-import {userAccount,userMoments} from './perspectives.js';
+import {cases} from './workshop.js?v=20260926-story2';
+import {userAccount,userMoments} from './perspectives.js?v=20260926-story2';
 
 // Authored workshop instructions. These describe checks, never live tenant state.
 const s=(action,why,look)=>({action,why,look});

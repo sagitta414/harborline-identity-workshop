@@ -4,7 +4,7 @@ export const userMoments = {
     ['Register as Elena.', 'Open the Franchise Hub in a private window, choose Owner sign in, then Create one, and show the partner sign-up page.', 'Stop before the verification code unless a mailbox is open; then sign in as the pre-made Elena instead.'],
     ['Land on the scorecard.', 'After sign-in, show the Franchise Hub scorecard and standards for Ballard Locks House.', 'Point out the Franchise Manager chip in the header; it came from the token.'],
     ['Try the owner-only page.', 'Open Royalties as Elena and read the refusal.', 'Sign in as Lena in another private window and open Royalties again to show the statements.'],
-    ['Show what does not exist.', 'Search the workforce tenant for petrova.', 'Nothing to reset, nothing to remove: the credential lives with the franchisee.']
+    ['Show what does not exist.', 'Search the workforce tenant for petrova.', 'No Workforce account to reset; verify that the franchise role still has an owner and removal path.']
   ],
   samfed: [
     ['Clock in on the franchise kiosk.', 'Use sam.fed@fed.arrow-creations.us in a separate browser profile and open My Apps.', 'Follow the redirect to HarborPass and the return to the application.'],
