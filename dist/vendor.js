@@ -1,8 +1,8 @@
 import {storyOpening,aiPage,chapterFrame} from './external-journey-frame.js?v=20260922-agent1';
-import {caseArchitecture} from './architecture.js?v=20260918-topology';
+import {caseArchitecture} from './architecture.js?v=20260925-clientcases1';
 import {companyPlaybook,companyStories} from './company-playbooks.js?v=20260921-personas2';
 import {vendorConfig} from './vendor-config.js?v=20260920-live2';
-import {cases} from './workshop.js?v=20260921-personas2';
+import {cases} from './workshop.js?v=20260925-clientcases1';
 import {lenaNarrative} from './journey-narrative.js?v=20260921-personas2';
 const e=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const orders=[

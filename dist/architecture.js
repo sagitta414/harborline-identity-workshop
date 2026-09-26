@@ -1,5 +1,5 @@
-import {cases} from './workshop.js';
-import {architectures,momentCases,architectureSources} from './architecture-models.js';
+import {cases} from './workshop.js?v=20260925-clientcases1';
+import {architectures,momentCases,architectureSources} from './architecture-models.js?v=20260925-clientcases1';
 const e=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const glyphs={
  person:'<circle cx="12" cy="7" r="3"/><path d="M5 21v-3a7 7 0 0 1 14 0v3M3 12h3m12 0h3"/>',

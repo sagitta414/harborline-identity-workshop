@@ -1,4 +1,4 @@
-import {people} from './data.js?v=20260921-streamlined2';
+import {people} from './data.js?v=20260925-clientcases1';
 
 const workforceIndexes=[0,2,3,5,6,7,8];
 const workforceMeta={

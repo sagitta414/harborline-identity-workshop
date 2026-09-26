@@ -140,7 +140,7 @@ const guides={
   [[5],[
    s('Switch to the External ID tenant (harborlineext) and open Users → Tom Reilly. Show the ClimateWorks HVAC company attribute.','The same human holds a second identity in a second population.','This account is untouched by the workforce leaver process.'),
    s('In a separate persona session, sign in to the real Supplier Desk as tom.reilly@climateworks.example and open a ClimateWorks resource. After a separately approved external removal, retry that same resource in a fresh session.','The External ID supplier relationship has a different lifecycle from Tom’s Workforce identity.','Use the private External ID credential. Match the External ID sign-in and API allow or deny response; a Workforce denial is not proof that Supplier Desk access ended.'),
-   s('Ask who owns the external lifecycle for vendors in the client’s environment.','Two populations need two owners and two end dates.','Tie it back to use case 5, population placement.')
+   s('Ask who owns the external lifecycle for vendors in the client’s environment.','Two populations need two owners and two end dates.','Tie it to use case 27 for high-turnover boundaries and use case 7 for managed-services vendors.')
   ]]
  ],
  kwame:[
