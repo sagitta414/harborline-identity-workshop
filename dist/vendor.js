@@ -2,8 +2,8 @@ import {storyOpening,aiPage,chapterFrame} from './external-journey-frame.js?v=20
 import {caseArchitecture} from './architecture.js?v=20260925-clientcases1';
 import {companyPlaybook,companyStories} from './company-playbooks.js?v=20260921-personas2';
 import {vendorConfig} from './vendor-config.js?v=20260920-live2';
-import {cases} from './workshop.js?v=20260926-story2';
-import {lenaNarrative} from './journey-narrative.js?v=20260926-story2';
+import {cases} from './workshop.js?v=20260926-story3';
+import {lenaNarrative} from './journey-narrative.js?v=20260926-story3';
 const e=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const orders=[
  {id:'WO-2048',property:'Elliott Landing',title:'Prepare the guest-room welcome packs',area:'Guest services · 120 rooms',status:'Ready to schedule',due:'Before arrival',detail:'Coordinate delivery with the property contact and confirm the approved room count. This illustrative order belongs to the sample vendor company.'},

@@ -2,7 +2,7 @@ import {installLiveCoach} from './live-coach.js?v=20260922-desk1';
 import {focusRemoteWindow,watchRemoteFocus} from './desktop-focus.js';
 import {installDualStage} from './dual-stage.js?v=20260922-desk1';
 import {remoteConfig} from './remote-config.js';
-import {people} from './data.js?v=20260926-story2';
+import {people} from './data.js?v=20260926-story3';
 
 export function validateGateway(value) {
   if (!value) return null;

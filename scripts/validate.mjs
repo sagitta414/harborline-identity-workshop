@@ -42,7 +42,7 @@ assert.match(home,/INTERNAL WORKFORCE IDENTITY/);
 assert.doesNotMatch(home+app,/Rewards|loyalty/i);
 assert.doesNotMatch(app+await readFile(new URL('../dist/data.js',import.meta.url),'utf8'),/staffing-agency|eight sign-ins become one|external version|his key still works|nothing for head office to manage/i);
 const narrative=await readFile(new URL('../dist/journey-narrative.js',import.meta.url),'utf8');
-for(const phrase of ['WITHOUT THIS CONTROL','One person moves from franchise to managed—and back.','The contract ended. Did the access?','A guest request reveals a governed software worker.'])assert.ok(narrative.includes(phrase),`Missing refined story element: ${phrase}`);
+for(const phrase of ['WITHOUT THIS CONTROL','BUSINESS CHANGE','IDENTITY RESPONSE','USER PROOF','One person moves from franchise to managed—and back.','The contract ended. Did the access?','A guest request reveals a governed AI agent.'])assert.ok(narrative.includes(phrase),`Missing refined story element: ${phrase}`);
 assert.match(app,/all nine stories, the live consoles and all three partner portals/);
 assert.match(home,/Presenter launchpad/);
 assert.match(home,/Trigger → identity → experience → proof/);
