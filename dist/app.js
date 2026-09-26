@@ -5,7 +5,7 @@ import {vendorConfig} from './vendor-config.js?v=20260920-live2';
 import {franchisePage,installFranchiseEvents,elenaGuide} from './franchise.js?v=20260922-agent1';
 import {partnerPage,installPartnerEvents,evanGuide} from './partner.js?v=20260922-agent1';
 import {aiContent} from './ai-guide.js?v=20260922-agent1';
-import {homePage} from './home.js?v=20260924-compare1';
+import {homePage} from './home.js?v=20260926-visual2';
 import {identityModelsPage} from './identity-models.js?v=20260924-compare1';
 import {userMoments,userLinks,userAccount} from './perspectives.js';
 import {buildDemoGuide} from './demo-guide.js?v=20260922-accessproof1';
