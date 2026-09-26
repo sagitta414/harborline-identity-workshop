@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.6.1 (2026-09-26)
+
+- **Contracted operators** is now a journey on the home page rather than a link buried in another story. Marguerite Okafor of Tidewell Facilities Group joins the external and franchise collection: housekeeping, the spa and valet at Harbor View are run by other companies whose people change every week, Harborline approves the company and the dates, and their own supervisor keeps the roster and confirms it each month. The card opens the hotel's operator console, with a second link to the operator's own portal.
+- Journey cards can now carry a second link with its own label, for a journey whose companion view is a live console rather than an agent page.
+
 ## 1.6.0 (2026-09-26)
 
 - Two new external identity journeys are now reachable from the site. **Contracted operators** (https://harborlinecc7795.z1.web.core.windows.net/operators.html) answers the question a hotel usually cannot: who from an outside company holds access to our systems right now, who has not signed in for a month, and whose roster nobody has confirmed. It opens on a real finding, a valet contract that ended ten days ago whose people still hold access, and closing that contract removes the whole company in one action. The operator's own supervisor keeps the roster on https://harborlinecc7795.z1.web.core.windows.net/operator-team.html, one person at a time or by pasting a whole roster when a contract starts.

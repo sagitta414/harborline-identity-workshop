@@ -14,7 +14,7 @@ const partnerLive=partnerPage('live');
 for(const label of ['Evan signs in','Integration registered','App-only token','Allow or deny'])assert.ok(partnerLive.includes(label),`Missing partner handoff: ${label}`);
 assert.doesNotMatch(partnerLive,/Nadia Haddad|NADIA’S|LIVE · Harborline Integration Exchange connected/);
 const renderedHome=homePage();
-assert.equal((renderedHome.match(/external-model/g)||[]).length,4);
+assert.equal((renderedHome.match(/external-model/g)||[]).length,5);
 assert.equal((renderedHome.match(/workforce-model/g)||[]).length,7);
 assert.equal((renderedHome.match(/journey-card-ai/g)||[]).length,11);
 const partnerAI=partnerPage('ai');
