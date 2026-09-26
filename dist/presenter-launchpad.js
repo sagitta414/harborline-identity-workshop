@@ -1,4 +1,4 @@
-import {people,URLS,AGENTS} from './data.js?v=20260926-story5';
+import {people,URLS,AGENTS} from './data.js?v=20260926-story6';
 import {vendorConfig} from './vendor-config.js?v=20260920-live2';
 
 const e=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));

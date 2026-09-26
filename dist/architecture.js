@@ -1,4 +1,4 @@
-import {cases} from './workshop.js?v=20260926-story5';
+import {cases} from './workshop.js?v=20260926-story6';
 import {architectures,momentCases,architectureSources} from './architecture-models.js?v=20260925-clientcases1';
 const e=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const glyphs={
