@@ -36,9 +36,15 @@ const html=await readFile(new URL('../dist/index.html',import.meta.url),'utf8');
 for(const [,asset] of html.matchAll(/(?:src|href)="\.\/([^"]+)"/g))await access(new URL('../dist/'+asset,import.meta.url));
 const home=await readFile(new URL('../dist/home.js',import.meta.url),'utf8');
 const app=await readFile(new URL('../dist/app.js',import.meta.url),'utf8');
+const launchpad=await readFile(new URL('../dist/presenter-launchpad.js',import.meta.url),'utf8');
 assert.match(home,/EXTERNAL &amp; FRANCHISE IDENTITY/);
 assert.match(home,/INTERNAL WORKFORCE IDENTITY/);
 assert.doesNotMatch(home+app,/Rewards|loyalty/i);
 assert.match(app,/all nine stories, the live consoles and all three partner portals/);
+assert.match(home,/Presenter launchpad/);
+assert.match(home,/Trigger → identity → experience → proof/);
+for(const id of ['evan','elena-franchise','tom-vendor','marguerite','samfed'])assert.match(launchpad,new RegExp(`id:'${id}'`),`Missing launchpad journey: ${id}`);
+for(const id of ['sofia','jordan','sam','tom','nadia','kwame','aiko'])assert.match(launchpad,new RegExp(`\\b${id}:\\{trigger`),`Missing launchpad journey: ${id}`);
+for(const label of ['BUSINESS TRIGGER / HRIS','WORKFORCE ENTRA','EXTERNAL ID','PROTECTED APPLICATION','AI EXPLANATION','EVIDENCE','WHAT THE BUSINESS CHANGED','WHAT IDENTITY ENFORCED','WHAT THE PERSON EXPERIENCED'])assert.ok(launchpad.includes(label),`Missing presenter sequence label: ${label}`);
 for(const p of people){assert.ok(p.console&&p.console.name&&p.console.url&&p.console.who&&p.console.does,`Missing live console: ${p.id}`);assert.ok(URLS[p.console.url]||/^https:/.test(p.console.url),`Unresolved console link: ${p.id}`);}
 console.log('Validated nine day-in-the-life personas with live consoles, the partner developer journey, 34 use cases, all portal mappings, contiguous 480-minute agenda and local entrypoint assets.');
